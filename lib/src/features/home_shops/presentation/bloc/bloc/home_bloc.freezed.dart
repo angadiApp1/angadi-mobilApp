@@ -20,21 +20,27 @@ mixin _$HomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getLocationData,
-    required TResult Function(String locationId) getCategories,
+    required TResult Function() getCategories,
+    required TResult Function(String locationId) getBanners,
+    required TResult Function(String locationId) getShops,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getLocationData,
-    TResult? Function(String locationId)? getCategories,
+    TResult? Function()? getCategories,
+    TResult? Function(String locationId)? getBanners,
+    TResult? Function(String locationId)? getShops,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getLocationData,
-    TResult Function(String locationId)? getCategories,
+    TResult Function()? getCategories,
+    TResult Function(String locationId)? getBanners,
+    TResult Function(String locationId)? getShops,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,8 @@ mixin _$HomeEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_GetLocationData value) getLocationData,
     required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_GetBanners value) getBanners,
+    required TResult Function(_GetShops value) getShops,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +58,8 @@ mixin _$HomeEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_GetLocationData value)? getLocationData,
     TResult? Function(_GetCategories value)? getCategories,
+    TResult? Function(_GetBanners value)? getBanners,
+    TResult? Function(_GetShops value)? getShops,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +67,8 @@ mixin _$HomeEvent {
     TResult Function(_Started value)? started,
     TResult Function(_GetLocationData value)? getLocationData,
     TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_GetBanners value)? getBanners,
+    TResult Function(_GetShops value)? getShops,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,7 +137,9 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getLocationData,
-    required TResult Function(String locationId) getCategories,
+    required TResult Function() getCategories,
+    required TResult Function(String locationId) getBanners,
+    required TResult Function(String locationId) getShops,
   }) {
     return started();
   }
@@ -135,7 +149,9 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getLocationData,
-    TResult? Function(String locationId)? getCategories,
+    TResult? Function()? getCategories,
+    TResult? Function(String locationId)? getBanners,
+    TResult? Function(String locationId)? getShops,
   }) {
     return started?.call();
   }
@@ -145,7 +161,9 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getLocationData,
-    TResult Function(String locationId)? getCategories,
+    TResult Function()? getCategories,
+    TResult Function(String locationId)? getBanners,
+    TResult Function(String locationId)? getShops,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -160,6 +178,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_GetLocationData value) getLocationData,
     required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_GetBanners value) getBanners,
+    required TResult Function(_GetShops value) getShops,
   }) {
     return started(this);
   }
@@ -170,6 +190,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_GetLocationData value)? getLocationData,
     TResult? Function(_GetCategories value)? getCategories,
+    TResult? Function(_GetBanners value)? getBanners,
+    TResult? Function(_GetShops value)? getShops,
   }) {
     return started?.call(this);
   }
@@ -180,6 +202,8 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_GetLocationData value)? getLocationData,
     TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_GetBanners value)? getBanners,
+    TResult Function(_GetShops value)? getShops,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -236,7 +260,9 @@ class _$GetLocationDataImpl implements _GetLocationData {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getLocationData,
-    required TResult Function(String locationId) getCategories,
+    required TResult Function() getCategories,
+    required TResult Function(String locationId) getBanners,
+    required TResult Function(String locationId) getShops,
   }) {
     return getLocationData();
   }
@@ -246,7 +272,9 @@ class _$GetLocationDataImpl implements _GetLocationData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getLocationData,
-    TResult? Function(String locationId)? getCategories,
+    TResult? Function()? getCategories,
+    TResult? Function(String locationId)? getBanners,
+    TResult? Function(String locationId)? getShops,
   }) {
     return getLocationData?.call();
   }
@@ -256,7 +284,9 @@ class _$GetLocationDataImpl implements _GetLocationData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getLocationData,
-    TResult Function(String locationId)? getCategories,
+    TResult Function()? getCategories,
+    TResult Function(String locationId)? getBanners,
+    TResult Function(String locationId)? getShops,
     required TResult orElse(),
   }) {
     if (getLocationData != null) {
@@ -271,6 +301,8 @@ class _$GetLocationDataImpl implements _GetLocationData {
     required TResult Function(_Started value) started,
     required TResult Function(_GetLocationData value) getLocationData,
     required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_GetBanners value) getBanners,
+    required TResult Function(_GetShops value) getShops,
   }) {
     return getLocationData(this);
   }
@@ -281,6 +313,8 @@ class _$GetLocationDataImpl implements _GetLocationData {
     TResult? Function(_Started value)? started,
     TResult? Function(_GetLocationData value)? getLocationData,
     TResult? Function(_GetCategories value)? getCategories,
+    TResult? Function(_GetBanners value)? getBanners,
+    TResult? Function(_GetShops value)? getShops,
   }) {
     return getLocationData?.call(this);
   }
@@ -291,6 +325,8 @@ class _$GetLocationDataImpl implements _GetLocationData {
     TResult Function(_Started value)? started,
     TResult Function(_GetLocationData value)? getLocationData,
     TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_GetBanners value)? getBanners,
+    TResult Function(_GetShops value)? getShops,
     required TResult orElse(),
   }) {
     if (getLocationData != null) {
@@ -309,8 +345,6 @@ abstract class _$$GetCategoriesImplCopyWith<$Res> {
   factory _$$GetCategoriesImplCopyWith(
           _$GetCategoriesImpl value, $Res Function(_$GetCategoriesImpl) then) =
       __$$GetCategoriesImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String locationId});
 }
 
 /// @nodoc
@@ -323,12 +357,137 @@ class __$$GetCategoriesImplCopyWithImpl<$Res>
 
   /// Create a copy of HomeEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetCategoriesImpl implements _GetCategories {
+  const _$GetCategoriesImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.getCategories()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetCategoriesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getLocationData,
+    required TResult Function() getCategories,
+    required TResult Function(String locationId) getBanners,
+    required TResult Function(String locationId) getShops,
+  }) {
+    return getCategories();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getLocationData,
+    TResult? Function()? getCategories,
+    TResult? Function(String locationId)? getBanners,
+    TResult? Function(String locationId)? getShops,
+  }) {
+    return getCategories?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getLocationData,
+    TResult Function()? getCategories,
+    TResult Function(String locationId)? getBanners,
+    TResult Function(String locationId)? getShops,
+    required TResult orElse(),
+  }) {
+    if (getCategories != null) {
+      return getCategories();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_GetLocationData value) getLocationData,
+    required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_GetBanners value) getBanners,
+    required TResult Function(_GetShops value) getShops,
+  }) {
+    return getCategories(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_GetLocationData value)? getLocationData,
+    TResult? Function(_GetCategories value)? getCategories,
+    TResult? Function(_GetBanners value)? getBanners,
+    TResult? Function(_GetShops value)? getShops,
+  }) {
+    return getCategories?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetLocationData value)? getLocationData,
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_GetBanners value)? getBanners,
+    TResult Function(_GetShops value)? getShops,
+    required TResult orElse(),
+  }) {
+    if (getCategories != null) {
+      return getCategories(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetCategories implements HomeEvent {
+  const factory _GetCategories() = _$GetCategoriesImpl;
+}
+
+/// @nodoc
+abstract class _$$GetBannersImplCopyWith<$Res> {
+  factory _$$GetBannersImplCopyWith(
+          _$GetBannersImpl value, $Res Function(_$GetBannersImpl) then) =
+      __$$GetBannersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String locationId});
+}
+
+/// @nodoc
+class __$$GetBannersImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetBannersImpl>
+    implements _$$GetBannersImplCopyWith<$Res> {
+  __$$GetBannersImplCopyWithImpl(
+      _$GetBannersImpl _value, $Res Function(_$GetBannersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? locationId = null,
   }) {
-    return _then(_$GetCategoriesImpl(
+    return _then(_$GetBannersImpl(
       null == locationId
           ? _value.locationId
           : locationId // ignore: cast_nullable_to_non_nullable
@@ -339,22 +498,22 @@ class __$$GetCategoriesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetCategoriesImpl implements _GetCategories {
-  const _$GetCategoriesImpl(this.locationId);
+class _$GetBannersImpl implements _GetBanners {
+  const _$GetBannersImpl(this.locationId);
 
   @override
   final String locationId;
 
   @override
   String toString() {
-    return 'HomeEvent.getCategories(locationId: $locationId)';
+    return 'HomeEvent.getBanners(locationId: $locationId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetCategoriesImpl &&
+            other is _$GetBannersImpl &&
             (identical(other.locationId, locationId) ||
                 other.locationId == locationId));
   }
@@ -367,17 +526,19 @@ class _$GetCategoriesImpl implements _GetCategories {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetCategoriesImplCopyWith<_$GetCategoriesImpl> get copyWith =>
-      __$$GetCategoriesImplCopyWithImpl<_$GetCategoriesImpl>(this, _$identity);
+  _$$GetBannersImplCopyWith<_$GetBannersImpl> get copyWith =>
+      __$$GetBannersImplCopyWithImpl<_$GetBannersImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getLocationData,
-    required TResult Function(String locationId) getCategories,
+    required TResult Function() getCategories,
+    required TResult Function(String locationId) getBanners,
+    required TResult Function(String locationId) getShops,
   }) {
-    return getCategories(locationId);
+    return getBanners(locationId);
   }
 
   @override
@@ -385,9 +546,11 @@ class _$GetCategoriesImpl implements _GetCategories {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getLocationData,
-    TResult? Function(String locationId)? getCategories,
+    TResult? Function()? getCategories,
+    TResult? Function(String locationId)? getBanners,
+    TResult? Function(String locationId)? getShops,
   }) {
-    return getCategories?.call(locationId);
+    return getBanners?.call(locationId);
   }
 
   @override
@@ -395,11 +558,13 @@ class _$GetCategoriesImpl implements _GetCategories {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getLocationData,
-    TResult Function(String locationId)? getCategories,
+    TResult Function()? getCategories,
+    TResult Function(String locationId)? getBanners,
+    TResult Function(String locationId)? getShops,
     required TResult orElse(),
   }) {
-    if (getCategories != null) {
-      return getCategories(locationId);
+    if (getBanners != null) {
+      return getBanners(locationId);
     }
     return orElse();
   }
@@ -410,8 +575,10 @@ class _$GetCategoriesImpl implements _GetCategories {
     required TResult Function(_Started value) started,
     required TResult Function(_GetLocationData value) getLocationData,
     required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_GetBanners value) getBanners,
+    required TResult Function(_GetShops value) getShops,
   }) {
-    return getCategories(this);
+    return getBanners(this);
   }
 
   @override
@@ -420,8 +587,10 @@ class _$GetCategoriesImpl implements _GetCategories {
     TResult? Function(_Started value)? started,
     TResult? Function(_GetLocationData value)? getLocationData,
     TResult? Function(_GetCategories value)? getCategories,
+    TResult? Function(_GetBanners value)? getBanners,
+    TResult? Function(_GetShops value)? getShops,
   }) {
-    return getCategories?.call(this);
+    return getBanners?.call(this);
   }
 
   @override
@@ -430,24 +599,185 @@ class _$GetCategoriesImpl implements _GetCategories {
     TResult Function(_Started value)? started,
     TResult Function(_GetLocationData value)? getLocationData,
     TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_GetBanners value)? getBanners,
+    TResult Function(_GetShops value)? getShops,
     required TResult orElse(),
   }) {
-    if (getCategories != null) {
-      return getCategories(this);
+    if (getBanners != null) {
+      return getBanners(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetCategories implements HomeEvent {
-  const factory _GetCategories(final String locationId) = _$GetCategoriesImpl;
+abstract class _GetBanners implements HomeEvent {
+  const factory _GetBanners(final String locationId) = _$GetBannersImpl;
 
   String get locationId;
 
   /// Create a copy of HomeEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetCategoriesImplCopyWith<_$GetCategoriesImpl> get copyWith =>
+  _$$GetBannersImplCopyWith<_$GetBannersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetShopsImplCopyWith<$Res> {
+  factory _$$GetShopsImplCopyWith(
+          _$GetShopsImpl value, $Res Function(_$GetShopsImpl) then) =
+      __$$GetShopsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String locationId});
+}
+
+/// @nodoc
+class __$$GetShopsImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetShopsImpl>
+    implements _$$GetShopsImplCopyWith<$Res> {
+  __$$GetShopsImplCopyWithImpl(
+      _$GetShopsImpl _value, $Res Function(_$GetShopsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? locationId = null,
+  }) {
+    return _then(_$GetShopsImpl(
+      null == locationId
+          ? _value.locationId
+          : locationId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetShopsImpl implements _GetShops {
+  const _$GetShopsImpl(this.locationId);
+
+  @override
+  final String locationId;
+
+  @override
+  String toString() {
+    return 'HomeEvent.getShops(locationId: $locationId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetShopsImpl &&
+            (identical(other.locationId, locationId) ||
+                other.locationId == locationId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, locationId);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetShopsImplCopyWith<_$GetShopsImpl> get copyWith =>
+      __$$GetShopsImplCopyWithImpl<_$GetShopsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getLocationData,
+    required TResult Function() getCategories,
+    required TResult Function(String locationId) getBanners,
+    required TResult Function(String locationId) getShops,
+  }) {
+    return getShops(locationId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getLocationData,
+    TResult? Function()? getCategories,
+    TResult? Function(String locationId)? getBanners,
+    TResult? Function(String locationId)? getShops,
+  }) {
+    return getShops?.call(locationId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getLocationData,
+    TResult Function()? getCategories,
+    TResult Function(String locationId)? getBanners,
+    TResult Function(String locationId)? getShops,
+    required TResult orElse(),
+  }) {
+    if (getShops != null) {
+      return getShops(locationId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_GetLocationData value) getLocationData,
+    required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_GetBanners value) getBanners,
+    required TResult Function(_GetShops value) getShops,
+  }) {
+    return getShops(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_GetLocationData value)? getLocationData,
+    TResult? Function(_GetCategories value)? getCategories,
+    TResult? Function(_GetBanners value)? getBanners,
+    TResult? Function(_GetShops value)? getShops,
+  }) {
+    return getShops?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetLocationData value)? getLocationData,
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_GetBanners value)? getBanners,
+    TResult Function(_GetShops value)? getShops,
+    required TResult orElse(),
+  }) {
+    if (getShops != null) {
+      return getShops(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetShops implements HomeEvent {
+  const factory _GetShops(final String locationId) = _$GetShopsImpl;
+
+  String get locationId;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetShopsImplCopyWith<_$GetShopsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -463,6 +793,13 @@ mixin _$HomeBlocState {
     required TResult Function() loadingCategories,
     required TResult Function(dynamic response) loadedCategories,
     required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -474,6 +811,12 @@ mixin _$HomeBlocState {
     TResult? Function()? loadingCategories,
     TResult? Function(dynamic response)? loadedCategories,
     TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -485,6 +828,12 @@ mixin _$HomeBlocState {
     TResult Function()? loadingCategories,
     TResult Function(dynamic response)? loadedCategories,
     TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -497,6 +846,12 @@ mixin _$HomeBlocState {
     required TResult Function(_LoadingCategories value) loadingCategories,
     required TResult Function(_LoadedCategories value) loadedCategories,
     required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -508,6 +863,12 @@ mixin _$HomeBlocState {
     TResult? Function(_LoadingCategories value)? loadingCategories,
     TResult? Function(_LoadedCategories value)? loadedCategories,
     TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -519,6 +880,12 @@ mixin _$HomeBlocState {
     TResult Function(_LoadingCategories value)? loadingCategories,
     TResult Function(_LoadedCategories value)? loadedCategories,
     TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -594,6 +961,13 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loadingCategories,
     required TResult Function(dynamic response) loadedCategories,
     required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
   }) {
     return initial();
   }
@@ -608,6 +982,12 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loadingCategories,
     TResult? Function(dynamic response)? loadedCategories,
     TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
   }) {
     return initial?.call();
   }
@@ -622,6 +1002,12 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loadingCategories,
     TResult Function(dynamic response)? loadedCategories,
     TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -640,6 +1026,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_LoadingCategories value) loadingCategories,
     required TResult Function(_LoadedCategories value) loadedCategories,
     required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
   }) {
     return initial(this);
   }
@@ -654,6 +1046,12 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_LoadingCategories value)? loadingCategories,
     TResult? Function(_LoadedCategories value)? loadedCategories,
     TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
   }) {
     return initial?.call(this);
   }
@@ -668,6 +1066,12 @@ class _$InitialImpl implements _Initial {
     TResult Function(_LoadingCategories value)? loadingCategories,
     TResult Function(_LoadedCategories value)? loadedCategories,
     TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -731,6 +1135,13 @@ class _$LoadingLocationDataImpl implements _LoadingLocationData {
     required TResult Function() loadingCategories,
     required TResult Function(dynamic response) loadedCategories,
     required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
   }) {
     return loadingLocationData();
   }
@@ -745,6 +1156,12 @@ class _$LoadingLocationDataImpl implements _LoadingLocationData {
     TResult? Function()? loadingCategories,
     TResult? Function(dynamic response)? loadedCategories,
     TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
   }) {
     return loadingLocationData?.call();
   }
@@ -759,6 +1176,12 @@ class _$LoadingLocationDataImpl implements _LoadingLocationData {
     TResult Function()? loadingCategories,
     TResult Function(dynamic response)? loadedCategories,
     TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
     required TResult orElse(),
   }) {
     if (loadingLocationData != null) {
@@ -777,6 +1200,12 @@ class _$LoadingLocationDataImpl implements _LoadingLocationData {
     required TResult Function(_LoadingCategories value) loadingCategories,
     required TResult Function(_LoadedCategories value) loadedCategories,
     required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
   }) {
     return loadingLocationData(this);
   }
@@ -791,6 +1220,12 @@ class _$LoadingLocationDataImpl implements _LoadingLocationData {
     TResult? Function(_LoadingCategories value)? loadingCategories,
     TResult? Function(_LoadedCategories value)? loadedCategories,
     TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
   }) {
     return loadingLocationData?.call(this);
   }
@@ -805,6 +1240,12 @@ class _$LoadingLocationDataImpl implements _LoadingLocationData {
     TResult Function(_LoadingCategories value)? loadingCategories,
     TResult Function(_LoadedCategories value)? loadedCategories,
     TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
     required TResult orElse(),
   }) {
     if (loadingLocationData != null) {
@@ -896,6 +1337,13 @@ class _$LoadedLocationDataImpl implements _LoadedLocationData {
     required TResult Function() loadingCategories,
     required TResult Function(dynamic response) loadedCategories,
     required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
   }) {
     return loadedLocationData(response);
   }
@@ -910,6 +1358,12 @@ class _$LoadedLocationDataImpl implements _LoadedLocationData {
     TResult? Function()? loadingCategories,
     TResult? Function(dynamic response)? loadedCategories,
     TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
   }) {
     return loadedLocationData?.call(response);
   }
@@ -924,6 +1378,12 @@ class _$LoadedLocationDataImpl implements _LoadedLocationData {
     TResult Function()? loadingCategories,
     TResult Function(dynamic response)? loadedCategories,
     TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
     required TResult orElse(),
   }) {
     if (loadedLocationData != null) {
@@ -942,6 +1402,12 @@ class _$LoadedLocationDataImpl implements _LoadedLocationData {
     required TResult Function(_LoadingCategories value) loadingCategories,
     required TResult Function(_LoadedCategories value) loadedCategories,
     required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
   }) {
     return loadedLocationData(this);
   }
@@ -956,6 +1422,12 @@ class _$LoadedLocationDataImpl implements _LoadedLocationData {
     TResult? Function(_LoadingCategories value)? loadingCategories,
     TResult? Function(_LoadedCategories value)? loadedCategories,
     TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
   }) {
     return loadedLocationData?.call(this);
   }
@@ -970,6 +1442,12 @@ class _$LoadedLocationDataImpl implements _LoadedLocationData {
     TResult Function(_LoadingCategories value)? loadingCategories,
     TResult Function(_LoadedCategories value)? loadedCategories,
     TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
     required TResult orElse(),
   }) {
     if (loadedLocationData != null) {
@@ -1069,6 +1547,13 @@ class _$ErrorLocationDataImpl implements _ErrorLocationData {
     required TResult Function() loadingCategories,
     required TResult Function(dynamic response) loadedCategories,
     required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
   }) {
     return errorLocationData(message);
   }
@@ -1083,6 +1568,12 @@ class _$ErrorLocationDataImpl implements _ErrorLocationData {
     TResult? Function()? loadingCategories,
     TResult? Function(dynamic response)? loadedCategories,
     TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
   }) {
     return errorLocationData?.call(message);
   }
@@ -1097,6 +1588,12 @@ class _$ErrorLocationDataImpl implements _ErrorLocationData {
     TResult Function()? loadingCategories,
     TResult Function(dynamic response)? loadedCategories,
     TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
     required TResult orElse(),
   }) {
     if (errorLocationData != null) {
@@ -1115,6 +1612,12 @@ class _$ErrorLocationDataImpl implements _ErrorLocationData {
     required TResult Function(_LoadingCategories value) loadingCategories,
     required TResult Function(_LoadedCategories value) loadedCategories,
     required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
   }) {
     return errorLocationData(this);
   }
@@ -1129,6 +1632,12 @@ class _$ErrorLocationDataImpl implements _ErrorLocationData {
     TResult? Function(_LoadingCategories value)? loadingCategories,
     TResult? Function(_LoadedCategories value)? loadedCategories,
     TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
   }) {
     return errorLocationData?.call(this);
   }
@@ -1143,6 +1652,12 @@ class _$ErrorLocationDataImpl implements _ErrorLocationData {
     TResult Function(_LoadingCategories value)? loadingCategories,
     TResult Function(_LoadedCategories value)? loadedCategories,
     TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
     required TResult orElse(),
   }) {
     if (errorLocationData != null) {
@@ -1214,6 +1729,13 @@ class _$LoadingCategoriesImpl implements _LoadingCategories {
     required TResult Function() loadingCategories,
     required TResult Function(dynamic response) loadedCategories,
     required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
   }) {
     return loadingCategories();
   }
@@ -1228,6 +1750,12 @@ class _$LoadingCategoriesImpl implements _LoadingCategories {
     TResult? Function()? loadingCategories,
     TResult? Function(dynamic response)? loadedCategories,
     TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
   }) {
     return loadingCategories?.call();
   }
@@ -1242,6 +1770,12 @@ class _$LoadingCategoriesImpl implements _LoadingCategories {
     TResult Function()? loadingCategories,
     TResult Function(dynamic response)? loadedCategories,
     TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
     required TResult orElse(),
   }) {
     if (loadingCategories != null) {
@@ -1260,6 +1794,12 @@ class _$LoadingCategoriesImpl implements _LoadingCategories {
     required TResult Function(_LoadingCategories value) loadingCategories,
     required TResult Function(_LoadedCategories value) loadedCategories,
     required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
   }) {
     return loadingCategories(this);
   }
@@ -1274,6 +1814,12 @@ class _$LoadingCategoriesImpl implements _LoadingCategories {
     TResult? Function(_LoadingCategories value)? loadingCategories,
     TResult? Function(_LoadedCategories value)? loadedCategories,
     TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
   }) {
     return loadingCategories?.call(this);
   }
@@ -1288,6 +1834,12 @@ class _$LoadingCategoriesImpl implements _LoadingCategories {
     TResult Function(_LoadingCategories value)? loadingCategories,
     TResult Function(_LoadedCategories value)? loadedCategories,
     TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
     required TResult orElse(),
   }) {
     if (loadingCategories != null) {
@@ -1379,6 +1931,13 @@ class _$LoadedCategoriesImpl implements _LoadedCategories {
     required TResult Function() loadingCategories,
     required TResult Function(dynamic response) loadedCategories,
     required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
   }) {
     return loadedCategories(response);
   }
@@ -1393,6 +1952,12 @@ class _$LoadedCategoriesImpl implements _LoadedCategories {
     TResult? Function()? loadingCategories,
     TResult? Function(dynamic response)? loadedCategories,
     TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
   }) {
     return loadedCategories?.call(response);
   }
@@ -1407,6 +1972,12 @@ class _$LoadedCategoriesImpl implements _LoadedCategories {
     TResult Function()? loadingCategories,
     TResult Function(dynamic response)? loadedCategories,
     TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
     required TResult orElse(),
   }) {
     if (loadedCategories != null) {
@@ -1425,6 +1996,12 @@ class _$LoadedCategoriesImpl implements _LoadedCategories {
     required TResult Function(_LoadingCategories value) loadingCategories,
     required TResult Function(_LoadedCategories value) loadedCategories,
     required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
   }) {
     return loadedCategories(this);
   }
@@ -1439,6 +2016,12 @@ class _$LoadedCategoriesImpl implements _LoadedCategories {
     TResult? Function(_LoadingCategories value)? loadingCategories,
     TResult? Function(_LoadedCategories value)? loadedCategories,
     TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
   }) {
     return loadedCategories?.call(this);
   }
@@ -1453,6 +2036,12 @@ class _$LoadedCategoriesImpl implements _LoadedCategories {
     TResult Function(_LoadingCategories value)? loadingCategories,
     TResult Function(_LoadedCategories value)? loadedCategories,
     TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
     required TResult orElse(),
   }) {
     if (loadedCategories != null) {
@@ -1552,6 +2141,13 @@ class _$ErrorCategoriesImpl implements _ErrorCategories {
     required TResult Function() loadingCategories,
     required TResult Function(dynamic response) loadedCategories,
     required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
   }) {
     return errorCategories(message);
   }
@@ -1566,6 +2162,12 @@ class _$ErrorCategoriesImpl implements _ErrorCategories {
     TResult? Function()? loadingCategories,
     TResult? Function(dynamic response)? loadedCategories,
     TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
   }) {
     return errorCategories?.call(message);
   }
@@ -1580,6 +2182,12 @@ class _$ErrorCategoriesImpl implements _ErrorCategories {
     TResult Function()? loadingCategories,
     TResult Function(dynamic response)? loadedCategories,
     TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
     required TResult orElse(),
   }) {
     if (errorCategories != null) {
@@ -1598,6 +2206,12 @@ class _$ErrorCategoriesImpl implements _ErrorCategories {
     required TResult Function(_LoadingCategories value) loadingCategories,
     required TResult Function(_LoadedCategories value) loadedCategories,
     required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
   }) {
     return errorCategories(this);
   }
@@ -1612,6 +2226,12 @@ class _$ErrorCategoriesImpl implements _ErrorCategories {
     TResult? Function(_LoadingCategories value)? loadingCategories,
     TResult? Function(_LoadedCategories value)? loadedCategories,
     TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
   }) {
     return errorCategories?.call(this);
   }
@@ -1626,6 +2246,12 @@ class _$ErrorCategoriesImpl implements _ErrorCategories {
     TResult Function(_LoadingCategories value)? loadingCategories,
     TResult Function(_LoadedCategories value)? loadedCategories,
     TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
     required TResult orElse(),
   }) {
     if (errorCategories != null) {
@@ -1644,5 +2270,1193 @@ abstract class _ErrorCategories implements HomeBlocState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorCategoriesImplCopyWith<_$ErrorCategoriesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingBannersImplCopyWith<$Res> {
+  factory _$$LoadingBannersImplCopyWith(_$LoadingBannersImpl value,
+          $Res Function(_$LoadingBannersImpl) then) =
+      __$$LoadingBannersImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingBannersImplCopyWithImpl<$Res>
+    extends _$HomeBlocStateCopyWithImpl<$Res, _$LoadingBannersImpl>
+    implements _$$LoadingBannersImplCopyWith<$Res> {
+  __$$LoadingBannersImplCopyWithImpl(
+      _$LoadingBannersImpl _value, $Res Function(_$LoadingBannersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadingBannersImpl implements _LoadingBanners {
+  const _$LoadingBannersImpl();
+
+  @override
+  String toString() {
+    return 'HomeBlocState.loadingBanners()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingBannersImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingLocationData,
+    required TResult Function(GetLocationResponseModel? response)
+        loadedLocationData,
+    required TResult Function(String message) errorLocationData,
+    required TResult Function() loadingCategories,
+    required TResult Function(dynamic response) loadedCategories,
+    required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
+  }) {
+    return loadingBanners();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingLocationData,
+    TResult? Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult? Function(String message)? errorLocationData,
+    TResult? Function()? loadingCategories,
+    TResult? Function(dynamic response)? loadedCategories,
+    TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
+  }) {
+    return loadingBanners?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingLocationData,
+    TResult Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult Function(String message)? errorLocationData,
+    TResult Function()? loadingCategories,
+    TResult Function(dynamic response)? loadedCategories,
+    TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (loadingBanners != null) {
+      return loadingBanners();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingLocationData value) loadingLocationData,
+    required TResult Function(_LoadedLocationData value) loadedLocationData,
+    required TResult Function(_ErrorLocationData value) errorLocationData,
+    required TResult Function(_LoadingCategories value) loadingCategories,
+    required TResult Function(_LoadedCategories value) loadedCategories,
+    required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
+  }) {
+    return loadingBanners(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingLocationData value)? loadingLocationData,
+    TResult? Function(_LoadedLocationData value)? loadedLocationData,
+    TResult? Function(_ErrorLocationData value)? errorLocationData,
+    TResult? Function(_LoadingCategories value)? loadingCategories,
+    TResult? Function(_LoadedCategories value)? loadedCategories,
+    TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
+  }) {
+    return loadingBanners?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingLocationData value)? loadingLocationData,
+    TResult Function(_LoadedLocationData value)? loadedLocationData,
+    TResult Function(_ErrorLocationData value)? errorLocationData,
+    TResult Function(_LoadingCategories value)? loadingCategories,
+    TResult Function(_LoadedCategories value)? loadedCategories,
+    TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (loadingBanners != null) {
+      return loadingBanners(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingBanners implements HomeBlocState {
+  const factory _LoadingBanners() = _$LoadingBannersImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadedBannersImplCopyWith<$Res> {
+  factory _$$LoadedBannersImplCopyWith(
+          _$LoadedBannersImpl value, $Res Function(_$LoadedBannersImpl) then) =
+      __$$LoadedBannersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<GetBannersResponseModel> response});
+}
+
+/// @nodoc
+class __$$LoadedBannersImplCopyWithImpl<$Res>
+    extends _$HomeBlocStateCopyWithImpl<$Res, _$LoadedBannersImpl>
+    implements _$$LoadedBannersImplCopyWith<$Res> {
+  __$$LoadedBannersImplCopyWithImpl(
+      _$LoadedBannersImpl _value, $Res Function(_$LoadedBannersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_$LoadedBannersImpl(
+      null == response
+          ? _value._response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<GetBannersResponseModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadedBannersImpl implements _LoadedBanners {
+  const _$LoadedBannersImpl(final List<GetBannersResponseModel> response)
+      : _response = response;
+
+  final List<GetBannersResponseModel> _response;
+  @override
+  List<GetBannersResponseModel> get response {
+    if (_response is EqualUnmodifiableListView) return _response;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_response);
+  }
+
+  @override
+  String toString() {
+    return 'HomeBlocState.loadedBanners(response: $response)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedBannersImpl &&
+            const DeepCollectionEquality().equals(other._response, _response));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_response));
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedBannersImplCopyWith<_$LoadedBannersImpl> get copyWith =>
+      __$$LoadedBannersImplCopyWithImpl<_$LoadedBannersImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingLocationData,
+    required TResult Function(GetLocationResponseModel? response)
+        loadedLocationData,
+    required TResult Function(String message) errorLocationData,
+    required TResult Function() loadingCategories,
+    required TResult Function(dynamic response) loadedCategories,
+    required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
+  }) {
+    return loadedBanners(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingLocationData,
+    TResult? Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult? Function(String message)? errorLocationData,
+    TResult? Function()? loadingCategories,
+    TResult? Function(dynamic response)? loadedCategories,
+    TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
+  }) {
+    return loadedBanners?.call(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingLocationData,
+    TResult Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult Function(String message)? errorLocationData,
+    TResult Function()? loadingCategories,
+    TResult Function(dynamic response)? loadedCategories,
+    TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (loadedBanners != null) {
+      return loadedBanners(response);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingLocationData value) loadingLocationData,
+    required TResult Function(_LoadedLocationData value) loadedLocationData,
+    required TResult Function(_ErrorLocationData value) errorLocationData,
+    required TResult Function(_LoadingCategories value) loadingCategories,
+    required TResult Function(_LoadedCategories value) loadedCategories,
+    required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
+  }) {
+    return loadedBanners(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingLocationData value)? loadingLocationData,
+    TResult? Function(_LoadedLocationData value)? loadedLocationData,
+    TResult? Function(_ErrorLocationData value)? errorLocationData,
+    TResult? Function(_LoadingCategories value)? loadingCategories,
+    TResult? Function(_LoadedCategories value)? loadedCategories,
+    TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
+  }) {
+    return loadedBanners?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingLocationData value)? loadingLocationData,
+    TResult Function(_LoadedLocationData value)? loadedLocationData,
+    TResult Function(_ErrorLocationData value)? errorLocationData,
+    TResult Function(_LoadingCategories value)? loadingCategories,
+    TResult Function(_LoadedCategories value)? loadedCategories,
+    TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (loadedBanners != null) {
+      return loadedBanners(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadedBanners implements HomeBlocState {
+  const factory _LoadedBanners(final List<GetBannersResponseModel> response) =
+      _$LoadedBannersImpl;
+
+  List<GetBannersResponseModel> get response;
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadedBannersImplCopyWith<_$LoadedBannersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorBannersImplCopyWith<$Res> {
+  factory _$$ErrorBannersImplCopyWith(
+          _$ErrorBannersImpl value, $Res Function(_$ErrorBannersImpl) then) =
+      __$$ErrorBannersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ErrorBannersImplCopyWithImpl<$Res>
+    extends _$HomeBlocStateCopyWithImpl<$Res, _$ErrorBannersImpl>
+    implements _$$ErrorBannersImplCopyWith<$Res> {
+  __$$ErrorBannersImplCopyWithImpl(
+      _$ErrorBannersImpl _value, $Res Function(_$ErrorBannersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ErrorBannersImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorBannersImpl implements _ErrorBanners {
+  const _$ErrorBannersImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'HomeBlocState.errorBanners(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorBannersImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorBannersImplCopyWith<_$ErrorBannersImpl> get copyWith =>
+      __$$ErrorBannersImplCopyWithImpl<_$ErrorBannersImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingLocationData,
+    required TResult Function(GetLocationResponseModel? response)
+        loadedLocationData,
+    required TResult Function(String message) errorLocationData,
+    required TResult Function() loadingCategories,
+    required TResult Function(dynamic response) loadedCategories,
+    required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
+  }) {
+    return errorBanners(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingLocationData,
+    TResult? Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult? Function(String message)? errorLocationData,
+    TResult? Function()? loadingCategories,
+    TResult? Function(dynamic response)? loadedCategories,
+    TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
+  }) {
+    return errorBanners?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingLocationData,
+    TResult Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult Function(String message)? errorLocationData,
+    TResult Function()? loadingCategories,
+    TResult Function(dynamic response)? loadedCategories,
+    TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (errorBanners != null) {
+      return errorBanners(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingLocationData value) loadingLocationData,
+    required TResult Function(_LoadedLocationData value) loadedLocationData,
+    required TResult Function(_ErrorLocationData value) errorLocationData,
+    required TResult Function(_LoadingCategories value) loadingCategories,
+    required TResult Function(_LoadedCategories value) loadedCategories,
+    required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
+  }) {
+    return errorBanners(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingLocationData value)? loadingLocationData,
+    TResult? Function(_LoadedLocationData value)? loadedLocationData,
+    TResult? Function(_ErrorLocationData value)? errorLocationData,
+    TResult? Function(_LoadingCategories value)? loadingCategories,
+    TResult? Function(_LoadedCategories value)? loadedCategories,
+    TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
+  }) {
+    return errorBanners?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingLocationData value)? loadingLocationData,
+    TResult Function(_LoadedLocationData value)? loadedLocationData,
+    TResult Function(_ErrorLocationData value)? errorLocationData,
+    TResult Function(_LoadingCategories value)? loadingCategories,
+    TResult Function(_LoadedCategories value)? loadedCategories,
+    TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (errorBanners != null) {
+      return errorBanners(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ErrorBanners implements HomeBlocState {
+  const factory _ErrorBanners(final String message) = _$ErrorBannersImpl;
+
+  String get message;
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ErrorBannersImplCopyWith<_$ErrorBannersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingShopsImplCopyWith<$Res> {
+  factory _$$LoadingShopsImplCopyWith(
+          _$LoadingShopsImpl value, $Res Function(_$LoadingShopsImpl) then) =
+      __$$LoadingShopsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingShopsImplCopyWithImpl<$Res>
+    extends _$HomeBlocStateCopyWithImpl<$Res, _$LoadingShopsImpl>
+    implements _$$LoadingShopsImplCopyWith<$Res> {
+  __$$LoadingShopsImplCopyWithImpl(
+      _$LoadingShopsImpl _value, $Res Function(_$LoadingShopsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadingShopsImpl implements _LoadingShops {
+  const _$LoadingShopsImpl();
+
+  @override
+  String toString() {
+    return 'HomeBlocState.loadingShops()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingShopsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingLocationData,
+    required TResult Function(GetLocationResponseModel? response)
+        loadedLocationData,
+    required TResult Function(String message) errorLocationData,
+    required TResult Function() loadingCategories,
+    required TResult Function(dynamic response) loadedCategories,
+    required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
+  }) {
+    return loadingShops();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingLocationData,
+    TResult? Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult? Function(String message)? errorLocationData,
+    TResult? Function()? loadingCategories,
+    TResult? Function(dynamic response)? loadedCategories,
+    TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
+  }) {
+    return loadingShops?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingLocationData,
+    TResult Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult Function(String message)? errorLocationData,
+    TResult Function()? loadingCategories,
+    TResult Function(dynamic response)? loadedCategories,
+    TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (loadingShops != null) {
+      return loadingShops();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingLocationData value) loadingLocationData,
+    required TResult Function(_LoadedLocationData value) loadedLocationData,
+    required TResult Function(_ErrorLocationData value) errorLocationData,
+    required TResult Function(_LoadingCategories value) loadingCategories,
+    required TResult Function(_LoadedCategories value) loadedCategories,
+    required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
+  }) {
+    return loadingShops(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingLocationData value)? loadingLocationData,
+    TResult? Function(_LoadedLocationData value)? loadedLocationData,
+    TResult? Function(_ErrorLocationData value)? errorLocationData,
+    TResult? Function(_LoadingCategories value)? loadingCategories,
+    TResult? Function(_LoadedCategories value)? loadedCategories,
+    TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
+  }) {
+    return loadingShops?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingLocationData value)? loadingLocationData,
+    TResult Function(_LoadedLocationData value)? loadedLocationData,
+    TResult Function(_ErrorLocationData value)? errorLocationData,
+    TResult Function(_LoadingCategories value)? loadingCategories,
+    TResult Function(_LoadedCategories value)? loadedCategories,
+    TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (loadingShops != null) {
+      return loadingShops(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingShops implements HomeBlocState {
+  const factory _LoadingShops() = _$LoadingShopsImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadedShopsImplCopyWith<$Res> {
+  factory _$$LoadedShopsImplCopyWith(
+          _$LoadedShopsImpl value, $Res Function(_$LoadedShopsImpl) then) =
+      __$$LoadedShopsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GetShopsResponseModel response});
+}
+
+/// @nodoc
+class __$$LoadedShopsImplCopyWithImpl<$Res>
+    extends _$HomeBlocStateCopyWithImpl<$Res, _$LoadedShopsImpl>
+    implements _$$LoadedShopsImplCopyWith<$Res> {
+  __$$LoadedShopsImplCopyWithImpl(
+      _$LoadedShopsImpl _value, $Res Function(_$LoadedShopsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_$LoadedShopsImpl(
+      null == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as GetShopsResponseModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadedShopsImpl implements _LoadedShops {
+  const _$LoadedShopsImpl(this.response);
+
+  @override
+  final GetShopsResponseModel response;
+
+  @override
+  String toString() {
+    return 'HomeBlocState.loadedShops(response: $response)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedShopsImpl &&
+            (identical(other.response, response) ||
+                other.response == response));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, response);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedShopsImplCopyWith<_$LoadedShopsImpl> get copyWith =>
+      __$$LoadedShopsImplCopyWithImpl<_$LoadedShopsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingLocationData,
+    required TResult Function(GetLocationResponseModel? response)
+        loadedLocationData,
+    required TResult Function(String message) errorLocationData,
+    required TResult Function() loadingCategories,
+    required TResult Function(dynamic response) loadedCategories,
+    required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
+  }) {
+    return loadedShops(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingLocationData,
+    TResult? Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult? Function(String message)? errorLocationData,
+    TResult? Function()? loadingCategories,
+    TResult? Function(dynamic response)? loadedCategories,
+    TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
+  }) {
+    return loadedShops?.call(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingLocationData,
+    TResult Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult Function(String message)? errorLocationData,
+    TResult Function()? loadingCategories,
+    TResult Function(dynamic response)? loadedCategories,
+    TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (loadedShops != null) {
+      return loadedShops(response);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingLocationData value) loadingLocationData,
+    required TResult Function(_LoadedLocationData value) loadedLocationData,
+    required TResult Function(_ErrorLocationData value) errorLocationData,
+    required TResult Function(_LoadingCategories value) loadingCategories,
+    required TResult Function(_LoadedCategories value) loadedCategories,
+    required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
+  }) {
+    return loadedShops(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingLocationData value)? loadingLocationData,
+    TResult? Function(_LoadedLocationData value)? loadedLocationData,
+    TResult? Function(_ErrorLocationData value)? errorLocationData,
+    TResult? Function(_LoadingCategories value)? loadingCategories,
+    TResult? Function(_LoadedCategories value)? loadedCategories,
+    TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
+  }) {
+    return loadedShops?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingLocationData value)? loadingLocationData,
+    TResult Function(_LoadedLocationData value)? loadedLocationData,
+    TResult Function(_ErrorLocationData value)? errorLocationData,
+    TResult Function(_LoadingCategories value)? loadingCategories,
+    TResult Function(_LoadedCategories value)? loadedCategories,
+    TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (loadedShops != null) {
+      return loadedShops(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadedShops implements HomeBlocState {
+  const factory _LoadedShops(final GetShopsResponseModel response) =
+      _$LoadedShopsImpl;
+
+  GetShopsResponseModel get response;
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadedShopsImplCopyWith<_$LoadedShopsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorShopsImplCopyWith<$Res> {
+  factory _$$ErrorShopsImplCopyWith(
+          _$ErrorShopsImpl value, $Res Function(_$ErrorShopsImpl) then) =
+      __$$ErrorShopsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ErrorShopsImplCopyWithImpl<$Res>
+    extends _$HomeBlocStateCopyWithImpl<$Res, _$ErrorShopsImpl>
+    implements _$$ErrorShopsImplCopyWith<$Res> {
+  __$$ErrorShopsImplCopyWithImpl(
+      _$ErrorShopsImpl _value, $Res Function(_$ErrorShopsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ErrorShopsImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorShopsImpl implements _ErrorShops {
+  const _$ErrorShopsImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'HomeBlocState.errorShops(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorShopsImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorShopsImplCopyWith<_$ErrorShopsImpl> get copyWith =>
+      __$$ErrorShopsImplCopyWithImpl<_$ErrorShopsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingLocationData,
+    required TResult Function(GetLocationResponseModel? response)
+        loadedLocationData,
+    required TResult Function(String message) errorLocationData,
+    required TResult Function() loadingCategories,
+    required TResult Function(dynamic response) loadedCategories,
+    required TResult Function(String message) errorCategories,
+    required TResult Function() loadingBanners,
+    required TResult Function(List<GetBannersResponseModel> response)
+        loadedBanners,
+    required TResult Function(String message) errorBanners,
+    required TResult Function() loadingShops,
+    required TResult Function(GetShopsResponseModel response) loadedShops,
+    required TResult Function(String message) errorShops,
+  }) {
+    return errorShops(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingLocationData,
+    TResult? Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult? Function(String message)? errorLocationData,
+    TResult? Function()? loadingCategories,
+    TResult? Function(dynamic response)? loadedCategories,
+    TResult? Function(String message)? errorCategories,
+    TResult? Function()? loadingBanners,
+    TResult? Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult? Function(String message)? errorBanners,
+    TResult? Function()? loadingShops,
+    TResult? Function(GetShopsResponseModel response)? loadedShops,
+    TResult? Function(String message)? errorShops,
+  }) {
+    return errorShops?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingLocationData,
+    TResult Function(GetLocationResponseModel? response)? loadedLocationData,
+    TResult Function(String message)? errorLocationData,
+    TResult Function()? loadingCategories,
+    TResult Function(dynamic response)? loadedCategories,
+    TResult Function(String message)? errorCategories,
+    TResult Function()? loadingBanners,
+    TResult Function(List<GetBannersResponseModel> response)? loadedBanners,
+    TResult Function(String message)? errorBanners,
+    TResult Function()? loadingShops,
+    TResult Function(GetShopsResponseModel response)? loadedShops,
+    TResult Function(String message)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (errorShops != null) {
+      return errorShops(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingLocationData value) loadingLocationData,
+    required TResult Function(_LoadedLocationData value) loadedLocationData,
+    required TResult Function(_ErrorLocationData value) errorLocationData,
+    required TResult Function(_LoadingCategories value) loadingCategories,
+    required TResult Function(_LoadedCategories value) loadedCategories,
+    required TResult Function(_ErrorCategories value) errorCategories,
+    required TResult Function(_LoadingBanners value) loadingBanners,
+    required TResult Function(_LoadedBanners value) loadedBanners,
+    required TResult Function(_ErrorBanners value) errorBanners,
+    required TResult Function(_LoadingShops value) loadingShops,
+    required TResult Function(_LoadedShops value) loadedShops,
+    required TResult Function(_ErrorShops value) errorShops,
+  }) {
+    return errorShops(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingLocationData value)? loadingLocationData,
+    TResult? Function(_LoadedLocationData value)? loadedLocationData,
+    TResult? Function(_ErrorLocationData value)? errorLocationData,
+    TResult? Function(_LoadingCategories value)? loadingCategories,
+    TResult? Function(_LoadedCategories value)? loadedCategories,
+    TResult? Function(_ErrorCategories value)? errorCategories,
+    TResult? Function(_LoadingBanners value)? loadingBanners,
+    TResult? Function(_LoadedBanners value)? loadedBanners,
+    TResult? Function(_ErrorBanners value)? errorBanners,
+    TResult? Function(_LoadingShops value)? loadingShops,
+    TResult? Function(_LoadedShops value)? loadedShops,
+    TResult? Function(_ErrorShops value)? errorShops,
+  }) {
+    return errorShops?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingLocationData value)? loadingLocationData,
+    TResult Function(_LoadedLocationData value)? loadedLocationData,
+    TResult Function(_ErrorLocationData value)? errorLocationData,
+    TResult Function(_LoadingCategories value)? loadingCategories,
+    TResult Function(_LoadedCategories value)? loadedCategories,
+    TResult Function(_ErrorCategories value)? errorCategories,
+    TResult Function(_LoadingBanners value)? loadingBanners,
+    TResult Function(_LoadedBanners value)? loadedBanners,
+    TResult Function(_ErrorBanners value)? errorBanners,
+    TResult Function(_LoadingShops value)? loadingShops,
+    TResult Function(_LoadedShops value)? loadedShops,
+    TResult Function(_ErrorShops value)? errorShops,
+    required TResult orElse(),
+  }) {
+    if (errorShops != null) {
+      return errorShops(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ErrorShops implements HomeBlocState {
+  const factory _ErrorShops(final String message) = _$ErrorShopsImpl;
+
+  String get message;
+
+  /// Create a copy of HomeBlocState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ErrorShopsImplCopyWith<_$ErrorShopsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

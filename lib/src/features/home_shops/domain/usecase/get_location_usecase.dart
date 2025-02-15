@@ -4,13 +4,13 @@ import 'package:angadiapp/src/features/home_shops/data/response/get_location_res
 import 'package:angadiapp/src/features/home_shops/domain/repository/home_repository.dart';
 import 'package:dartz/dartz.dart';
 
-class GetLocationUsecase implements BaseUseCaseWithNoInput<GetLocationResponseModel?> {
+class GetLocationUsecase implements BaseUseCaseWithNoInput<GetLocationResponseModel> {
   final HomeRepository homeRepository;
 
   GetLocationUsecase(this.homeRepository);
 
   @override
-  Future<Either<Failure, GetLocationResponseModel?>> execute() async {
+  Future<Either<Failure, GetLocationResponseModel>> execute() async {
     return homeRepository.getLocationData(
     );
   }

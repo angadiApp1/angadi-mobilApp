@@ -1,8 +1,9 @@
+import 'package:angadiapp/src/features/home_shops/presentation/provider/home_state.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-Widget courouselSlider() {
+Widget courouselSlider(HomeState homeState) {
   // final carouselIndex indexcontroller = Get.put(carouselIndex());
     return SizedBox(
       child: Stack(
@@ -11,20 +12,13 @@ Widget courouselSlider() {
             borderRadius: BorderRadius.circular(12),
             child: CarouselSlider(
                   items:  [
-                    Container(
-                      color: Colors.black,
-                      child: const Center(
-                          child: Text(
-                        'SHOP ADVERTISEMENT BANNER GOES HERE',
-                        style: TextStyle(color: Colors.white),
-                      )),
+                    ...List.generate(
+                      homeState.advertisementBanners.length,
+                      (index) => Container(
+                        color: Colors.black,
+                        child: Image.network(homeState.advertisementBanners[index],fit: BoxFit.cover,),
+                      ),
                     ),
-                    Container(
-                      color: Colors.lightBlue,
-                    ),
-                    Container(
-                      color: Colors.red,
-                    )
                   ],
                   options: CarouselOptions(
                     viewportFraction: 1,

@@ -3,8 +3,10 @@ import 'package:angadiapp/src/features/home_shops/data/datasource/home_remote_da
 import 'package:angadiapp/src/features/home_shops/data/network/home_api_clients.dart';
 import 'package:angadiapp/src/features/home_shops/data/repository/home_repository_impl.dart';
 import 'package:angadiapp/src/features/home_shops/domain/repository/home_repository.dart';
+import 'package:angadiapp/src/features/home_shops/domain/usecase/get_adBanners_usecase.dart';
 import 'package:angadiapp/src/features/home_shops/domain/usecase/get_categories_usecase.dart';
 import 'package:angadiapp/src/features/home_shops/domain/usecase/get_location_usecase.dart';
+import 'package:angadiapp/src/features/home_shops/domain/usecase/get_shops_usecase.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/bloc/bloc/home_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -31,8 +33,9 @@ Future<void> init() async {
   // Use Cases
   serviceLocator.registerLazySingleton(() => GetLocationUsecase(serviceLocator()));
   serviceLocator.registerLazySingleton(() => GetCategoriesUsecase(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => GetAdBannersUsecase(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => GetShopsUsecase(serviceLocator()));
 
   // BLoCs
-  serviceLocator.registerFactory(() => HomeBloc(serviceLocator(), serviceLocator()
-  ));
+  serviceLocator.registerFactory(() => HomeBloc(serviceLocator(), serviceLocator(), serviceLocator(), serviceLocator()));
 }

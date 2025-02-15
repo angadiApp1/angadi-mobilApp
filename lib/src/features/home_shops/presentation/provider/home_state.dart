@@ -1,3 +1,5 @@
+import 'package:angadiapp/src/features/home_shops/data/response/fetch_shops_model.dart';
+import 'package:angadiapp/src/features/home_shops/data/response/get_categories_model.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_location_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -14,6 +16,11 @@ class HomeState with _$HomeState {
     @Default([]) List<StateData> availableStates,
     @Default([]) List<DistrictData> availableDistricts,
     @Default([]) List<LocationData> availableLocations,
+
+    @Default([]) List<CategoryData> availableCategories,
+    @Default([]) List<String> advertisementBanners,
+
+    @Default([]) List<ShopData> availableShops,
   }) = _HomeState;
 
   factory HomeState.fromJson(Map<String, dynamic> json) =>
@@ -27,11 +34,25 @@ class HomeStateProvider extends _$HomeStateProvider {
     return const HomeState();
   }
 
+  void setAvailableShops(List<ShopData> shops) {
+    state = state.copyWith(availableShops: shops);
+  }
+
+  void setAdvertisementBanners(List<String> banners) {
+    state = state.copyWith(advertisementBanners: banners);
+  }
+
   void setSelectedLocation(LocationData? location) {
     state = state.copyWith(selectedLocation: location);
   }
   void setSelectedDistrict(String? district) {
     state = state.copyWith(selectedDistrict: district);
+  }
+
+  void setAvailableCategories(GetCategoriesResponseModel? response) {
+
+      state = state.copyWith(availableCategories: response?.categories ?? []);
+    
   }
 
   void setAvailableLocations(GetLocationResponseModel? response) {

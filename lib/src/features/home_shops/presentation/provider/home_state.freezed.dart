@@ -29,6 +29,10 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   List<LocationData> get availableLocations =>
       throw _privateConstructorUsedError;
+  List<CategoryData> get availableCategories =>
+      throw _privateConstructorUsedError;
+  List<String> get advertisementBanners => throw _privateConstructorUsedError;
+  List<ShopData> get availableShops => throw _privateConstructorUsedError;
 
   /// Serializes this HomeState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,7 +55,10 @@ abstract class $HomeStateCopyWith<$Res> {
       List<CountryData> availableCountries,
       List<StateData> availableStates,
       List<DistrictData> availableDistricts,
-      List<LocationData> availableLocations});
+      List<LocationData> availableLocations,
+      List<CategoryData> availableCategories,
+      List<String> advertisementBanners,
+      List<ShopData> availableShops});
 }
 
 /// @nodoc
@@ -75,6 +82,9 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? availableStates = null,
     Object? availableDistricts = null,
     Object? availableLocations = null,
+    Object? availableCategories = null,
+    Object? advertisementBanners = null,
+    Object? availableShops = null,
   }) {
     return _then(_value.copyWith(
       selectedDistrict: freezed == selectedDistrict
@@ -101,6 +111,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.availableLocations
           : availableLocations // ignore: cast_nullable_to_non_nullable
               as List<LocationData>,
+      availableCategories: null == availableCategories
+          ? _value.availableCategories
+          : availableCategories // ignore: cast_nullable_to_non_nullable
+              as List<CategoryData>,
+      advertisementBanners: null == advertisementBanners
+          ? _value.advertisementBanners
+          : advertisementBanners // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      availableShops: null == availableShops
+          ? _value.availableShops
+          : availableShops // ignore: cast_nullable_to_non_nullable
+              as List<ShopData>,
     ) as $Val);
   }
 }
@@ -119,7 +141,10 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       List<CountryData> availableCountries,
       List<StateData> availableStates,
       List<DistrictData> availableDistricts,
-      List<LocationData> availableLocations});
+      List<LocationData> availableLocations,
+      List<CategoryData> availableCategories,
+      List<String> advertisementBanners,
+      List<ShopData> availableShops});
 }
 
 /// @nodoc
@@ -141,6 +166,9 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? availableStates = null,
     Object? availableDistricts = null,
     Object? availableLocations = null,
+    Object? availableCategories = null,
+    Object? advertisementBanners = null,
+    Object? availableShops = null,
   }) {
     return _then(_$HomeStateImpl(
       selectedDistrict: freezed == selectedDistrict
@@ -167,6 +195,18 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value._availableLocations
           : availableLocations // ignore: cast_nullable_to_non_nullable
               as List<LocationData>,
+      availableCategories: null == availableCategories
+          ? _value._availableCategories
+          : availableCategories // ignore: cast_nullable_to_non_nullable
+              as List<CategoryData>,
+      advertisementBanners: null == advertisementBanners
+          ? _value._advertisementBanners
+          : advertisementBanners // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      availableShops: null == availableShops
+          ? _value._availableShops
+          : availableShops // ignore: cast_nullable_to_non_nullable
+              as List<ShopData>,
     ));
   }
 }
@@ -180,11 +220,17 @@ class _$HomeStateImpl implements _HomeState {
       final List<CountryData> availableCountries = const [],
       final List<StateData> availableStates = const [],
       final List<DistrictData> availableDistricts = const [],
-      final List<LocationData> availableLocations = const []})
+      final List<LocationData> availableLocations = const [],
+      final List<CategoryData> availableCategories = const [],
+      final List<String> advertisementBanners = const [],
+      final List<ShopData> availableShops = const []})
       : _availableCountries = availableCountries,
         _availableStates = availableStates,
         _availableDistricts = availableDistricts,
-        _availableLocations = availableLocations;
+        _availableLocations = availableLocations,
+        _availableCategories = availableCategories,
+        _advertisementBanners = advertisementBanners,
+        _availableShops = availableShops;
 
   factory _$HomeStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$HomeStateImplFromJson(json);
@@ -234,9 +280,38 @@ class _$HomeStateImpl implements _HomeState {
     return EqualUnmodifiableListView(_availableLocations);
   }
 
+  final List<CategoryData> _availableCategories;
+  @override
+  @JsonKey()
+  List<CategoryData> get availableCategories {
+    if (_availableCategories is EqualUnmodifiableListView)
+      return _availableCategories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_availableCategories);
+  }
+
+  final List<String> _advertisementBanners;
+  @override
+  @JsonKey()
+  List<String> get advertisementBanners {
+    if (_advertisementBanners is EqualUnmodifiableListView)
+      return _advertisementBanners;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_advertisementBanners);
+  }
+
+  final List<ShopData> _availableShops;
+  @override
+  @JsonKey()
+  List<ShopData> get availableShops {
+    if (_availableShops is EqualUnmodifiableListView) return _availableShops;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_availableShops);
+  }
+
   @override
   String toString() {
-    return 'HomeState(selectedDistrict: $selectedDistrict, selectedLocation: $selectedLocation, availableCountries: $availableCountries, availableStates: $availableStates, availableDistricts: $availableDistricts, availableLocations: $availableLocations)';
+    return 'HomeState(selectedDistrict: $selectedDistrict, selectedLocation: $selectedLocation, availableCountries: $availableCountries, availableStates: $availableStates, availableDistricts: $availableDistricts, availableLocations: $availableLocations, availableCategories: $availableCategories, advertisementBanners: $advertisementBanners, availableShops: $availableShops)';
   }
 
   @override
@@ -255,7 +330,13 @@ class _$HomeStateImpl implements _HomeState {
             const DeepCollectionEquality()
                 .equals(other._availableDistricts, _availableDistricts) &&
             const DeepCollectionEquality()
-                .equals(other._availableLocations, _availableLocations));
+                .equals(other._availableLocations, _availableLocations) &&
+            const DeepCollectionEquality()
+                .equals(other._availableCategories, _availableCategories) &&
+            const DeepCollectionEquality()
+                .equals(other._advertisementBanners, _advertisementBanners) &&
+            const DeepCollectionEquality()
+                .equals(other._availableShops, _availableShops));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -267,7 +348,10 @@ class _$HomeStateImpl implements _HomeState {
       const DeepCollectionEquality().hash(_availableCountries),
       const DeepCollectionEquality().hash(_availableStates),
       const DeepCollectionEquality().hash(_availableDistricts),
-      const DeepCollectionEquality().hash(_availableLocations));
+      const DeepCollectionEquality().hash(_availableLocations),
+      const DeepCollectionEquality().hash(_availableCategories),
+      const DeepCollectionEquality().hash(_advertisementBanners),
+      const DeepCollectionEquality().hash(_availableShops));
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -292,7 +376,10 @@ abstract class _HomeState implements HomeState {
       final List<CountryData> availableCountries,
       final List<StateData> availableStates,
       final List<DistrictData> availableDistricts,
-      final List<LocationData> availableLocations}) = _$HomeStateImpl;
+      final List<LocationData> availableLocations,
+      final List<CategoryData> availableCategories,
+      final List<String> advertisementBanners,
+      final List<ShopData> availableShops}) = _$HomeStateImpl;
 
   factory _HomeState.fromJson(Map<String, dynamic> json) =
       _$HomeStateImpl.fromJson;
@@ -309,6 +396,12 @@ abstract class _HomeState implements HomeState {
   List<DistrictData> get availableDistricts;
   @override
   List<LocationData> get availableLocations;
+  @override
+  List<CategoryData> get availableCategories;
+  @override
+  List<String> get advertisementBanners;
+  @override
+  List<ShopData> get availableShops;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.

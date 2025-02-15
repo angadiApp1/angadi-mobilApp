@@ -29,6 +29,18 @@ _$HomeStateImpl _$$HomeStateImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => LocationData.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      availableCategories: (json['availableCategories'] as List<dynamic>?)
+              ?.map((e) => CategoryData.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      advertisementBanners: (json['advertisementBanners'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      availableShops: (json['availableShops'] as List<dynamic>?)
+              ?.map((e) => ShopData.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$HomeStateImplToJson(_$HomeStateImpl instance) =>
@@ -39,13 +51,16 @@ Map<String, dynamic> _$$HomeStateImplToJson(_$HomeStateImpl instance) =>
       'availableStates': instance.availableStates,
       'availableDistricts': instance.availableDistricts,
       'availableLocations': instance.availableLocations,
+      'availableCategories': instance.availableCategories,
+      'advertisementBanners': instance.advertisementBanners,
+      'availableShops': instance.availableShops,
     };
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$homeStateProviderHash() => r'8d6d897d9922d8b3548a9ae9ed937a3a9dd89631';
+String _$homeStateProviderHash() => r'3dcc86480b2b2c0fac9660f1eab4229fb7000306';
 
 /// See also [HomeStateProvider].
 @ProviderFor(HomeStateProvider)
