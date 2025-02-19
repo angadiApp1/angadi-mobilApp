@@ -16,11 +16,11 @@ class HomeState with _$HomeState {
     @Default([]) List<StateData> availableStates,
     @Default([]) List<DistrictData> availableDistricts,
     @Default([]) List<LocationData> availableLocations,
-
     @Default([]) List<CategoryData> availableCategories,
     @Default([]) List<String> advertisementBanners,
-
     @Default([]) List<ShopData> availableShops,
+    @Default([]) List<ShopData> filteredShops,
+    @Default("All offers") String selectedCategory,
   }) = _HomeState;
 
   factory HomeState.fromJson(Map<String, dynamic> json) =>
@@ -35,7 +35,30 @@ class HomeStateProvider extends _$HomeStateProvider {
   }
 
   void setAvailableShops(List<ShopData> shops) {
+    // Update available shops and immediately filter them based on current category
     state = state.copyWith(availableShops: shops);
+
+    // Always apply current category filter when shops are updated
+    _applyCurrentCategoryFilter();
+  }
+
+  void setSelectedCategory(String category) {
+    state = state.copyWith(selectedCategory: category);
+    _applyCurrentCategoryFilter();
+  }
+
+  // Helper method to apply current category filter
+  void _applyCurrentCategoryFilter() {
+    if (state.selectedCategory == "All offers") {
+      state = state.copyWith(filteredShops: state.availableShops);
+    } else {
+      final filteredShops = state.availableShops.where((shop) {
+        // Filter shops based on category
+        return shop.categoryName.contains(state.selectedCategory);
+      }).toList();
+
+      state = state.copyWith(filteredShops: filteredShops);
+    }
   }
 
   void setAdvertisementBanners(List<String> banners) {
@@ -44,15 +67,18 @@ class HomeStateProvider extends _$HomeStateProvider {
 
   void setSelectedLocation(LocationData? location) {
     state = state.copyWith(selectedLocation: location);
+
+    // Reset filtered shops to empty when location changes
+    // The UI will show loading state until new shops are fetched
+    state = state.copyWith(filteredShops: []);
   }
+
   void setSelectedDistrict(String? district) {
     state = state.copyWith(selectedDistrict: district);
   }
 
   void setAvailableCategories(GetCategoriesResponseModel? response) {
-
-      state = state.copyWith(availableCategories: response?.categories ?? []);
-    
+    state = state.copyWith(availableCategories: response?.categories ?? []);
   }
 
   void setAvailableLocations(GetLocationResponseModel? response) {
@@ -68,17 +94,16 @@ class HomeStateProvider extends _$HomeStateProvider {
 
     // Set countries
     final countries = response.locations;
-    
+
     // Extract all states from all countries
     final states = countries.expand((country) => country.states).toList();
-    
+
     // Extract all districts from all states
     final districts = states.expand((state) => state.districts).toList();
-    
+
     // Extract all locations from all districts
-    final locations = districts
-        .expand((district) => district.locations)
-        .toList();
+    final locations =
+        districts.expand((district) => district.locations).toList();
 
     state = state.copyWith(
       availableCountries: countries,
@@ -96,8 +121,8 @@ class HomeStateProvider extends _$HomeStateProvider {
   }
 
   List<DistrictData> getDistrictsForState(String stateId) {
-    final state = this.state.availableStates
-        .firstWhere((state) => state.id == stateId);
+    final state =
+        this.state.availableStates.firstWhere((state) => state.id == stateId);
     return state.districts;
   }
 

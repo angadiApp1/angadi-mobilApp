@@ -33,6 +33,8 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   List<String> get advertisementBanners => throw _privateConstructorUsedError;
   List<ShopData> get availableShops => throw _privateConstructorUsedError;
+  List<ShopData> get filteredShops => throw _privateConstructorUsedError;
+  String get selectedCategory => throw _privateConstructorUsedError;
 
   /// Serializes this HomeState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,7 +60,9 @@ abstract class $HomeStateCopyWith<$Res> {
       List<LocationData> availableLocations,
       List<CategoryData> availableCategories,
       List<String> advertisementBanners,
-      List<ShopData> availableShops});
+      List<ShopData> availableShops,
+      List<ShopData> filteredShops,
+      String selectedCategory});
 }
 
 /// @nodoc
@@ -85,6 +89,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? availableCategories = null,
     Object? advertisementBanners = null,
     Object? availableShops = null,
+    Object? filteredShops = null,
+    Object? selectedCategory = null,
   }) {
     return _then(_value.copyWith(
       selectedDistrict: freezed == selectedDistrict
@@ -123,6 +129,14 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.availableShops
           : availableShops // ignore: cast_nullable_to_non_nullable
               as List<ShopData>,
+      filteredShops: null == filteredShops
+          ? _value.filteredShops
+          : filteredShops // ignore: cast_nullable_to_non_nullable
+              as List<ShopData>,
+      selectedCategory: null == selectedCategory
+          ? _value.selectedCategory
+          : selectedCategory // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -144,7 +158,9 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       List<LocationData> availableLocations,
       List<CategoryData> availableCategories,
       List<String> advertisementBanners,
-      List<ShopData> availableShops});
+      List<ShopData> availableShops,
+      List<ShopData> filteredShops,
+      String selectedCategory});
 }
 
 /// @nodoc
@@ -169,6 +185,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? availableCategories = null,
     Object? advertisementBanners = null,
     Object? availableShops = null,
+    Object? filteredShops = null,
+    Object? selectedCategory = null,
   }) {
     return _then(_$HomeStateImpl(
       selectedDistrict: freezed == selectedDistrict
@@ -207,6 +225,14 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value._availableShops
           : availableShops // ignore: cast_nullable_to_non_nullable
               as List<ShopData>,
+      filteredShops: null == filteredShops
+          ? _value._filteredShops
+          : filteredShops // ignore: cast_nullable_to_non_nullable
+              as List<ShopData>,
+      selectedCategory: null == selectedCategory
+          ? _value.selectedCategory
+          : selectedCategory // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -223,14 +249,17 @@ class _$HomeStateImpl implements _HomeState {
       final List<LocationData> availableLocations = const [],
       final List<CategoryData> availableCategories = const [],
       final List<String> advertisementBanners = const [],
-      final List<ShopData> availableShops = const []})
+      final List<ShopData> availableShops = const [],
+      final List<ShopData> filteredShops = const [],
+      this.selectedCategory = "All offers"})
       : _availableCountries = availableCountries,
         _availableStates = availableStates,
         _availableDistricts = availableDistricts,
         _availableLocations = availableLocations,
         _availableCategories = availableCategories,
         _advertisementBanners = advertisementBanners,
-        _availableShops = availableShops;
+        _availableShops = availableShops,
+        _filteredShops = filteredShops;
 
   factory _$HomeStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$HomeStateImplFromJson(json);
@@ -309,9 +338,22 @@ class _$HomeStateImpl implements _HomeState {
     return EqualUnmodifiableListView(_availableShops);
   }
 
+  final List<ShopData> _filteredShops;
+  @override
+  @JsonKey()
+  List<ShopData> get filteredShops {
+    if (_filteredShops is EqualUnmodifiableListView) return _filteredShops;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filteredShops);
+  }
+
+  @override
+  @JsonKey()
+  final String selectedCategory;
+
   @override
   String toString() {
-    return 'HomeState(selectedDistrict: $selectedDistrict, selectedLocation: $selectedLocation, availableCountries: $availableCountries, availableStates: $availableStates, availableDistricts: $availableDistricts, availableLocations: $availableLocations, availableCategories: $availableCategories, advertisementBanners: $advertisementBanners, availableShops: $availableShops)';
+    return 'HomeState(selectedDistrict: $selectedDistrict, selectedLocation: $selectedLocation, availableCountries: $availableCountries, availableStates: $availableStates, availableDistricts: $availableDistricts, availableLocations: $availableLocations, availableCategories: $availableCategories, advertisementBanners: $advertisementBanners, availableShops: $availableShops, filteredShops: $filteredShops, selectedCategory: $selectedCategory)';
   }
 
   @override
@@ -336,7 +378,11 @@ class _$HomeStateImpl implements _HomeState {
             const DeepCollectionEquality()
                 .equals(other._advertisementBanners, _advertisementBanners) &&
             const DeepCollectionEquality()
-                .equals(other._availableShops, _availableShops));
+                .equals(other._availableShops, _availableShops) &&
+            const DeepCollectionEquality()
+                .equals(other._filteredShops, _filteredShops) &&
+            (identical(other.selectedCategory, selectedCategory) ||
+                other.selectedCategory == selectedCategory));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -351,7 +397,9 @@ class _$HomeStateImpl implements _HomeState {
       const DeepCollectionEquality().hash(_availableLocations),
       const DeepCollectionEquality().hash(_availableCategories),
       const DeepCollectionEquality().hash(_advertisementBanners),
-      const DeepCollectionEquality().hash(_availableShops));
+      const DeepCollectionEquality().hash(_availableShops),
+      const DeepCollectionEquality().hash(_filteredShops),
+      selectedCategory);
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -379,7 +427,9 @@ abstract class _HomeState implements HomeState {
       final List<LocationData> availableLocations,
       final List<CategoryData> availableCategories,
       final List<String> advertisementBanners,
-      final List<ShopData> availableShops}) = _$HomeStateImpl;
+      final List<ShopData> availableShops,
+      final List<ShopData> filteredShops,
+      final String selectedCategory}) = _$HomeStateImpl;
 
   factory _HomeState.fromJson(Map<String, dynamic> json) =
       _$HomeStateImpl.fromJson;
@@ -402,6 +452,10 @@ abstract class _HomeState implements HomeState {
   List<String> get advertisementBanners;
   @override
   List<ShopData> get availableShops;
+  @override
+  List<ShopData> get filteredShops;
+  @override
+  String get selectedCategory;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
