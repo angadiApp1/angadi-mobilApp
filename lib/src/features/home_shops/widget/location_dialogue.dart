@@ -1,4 +1,3 @@
-import 'package:angadiapp/core/constants/assets.dart';
 import 'package:angadiapp/core/constants/colors.dart';
 import 'package:angadiapp/core/constants/style.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_location_response_model.dart';

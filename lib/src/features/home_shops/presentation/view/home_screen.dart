@@ -1,5 +1,4 @@
 import 'package:angadiapp/core/constants/assets.dart';
-import 'package:angadiapp/core/constants/colors.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/bloc/bloc/home_bloc.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/provider/home_state.dart';
 import 'package:angadiapp/src/features/home_shops/widget/category_skelton.dart';
