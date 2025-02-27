@@ -34,7 +34,8 @@ mixin _$HomeState {
   List<String> get advertisementBanners => throw _privateConstructorUsedError;
   List<ShopData> get availableShops => throw _privateConstructorUsedError;
   List<ShopData> get filteredShops => throw _privateConstructorUsedError;
-  String get selectedCategory => throw _privateConstructorUsedError;
+  String get selectedCategory => throw _privateConstructorUsedError; //
+  List<OfferDetail> get shopOffer => throw _privateConstructorUsedError;
 
   /// Serializes this HomeState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -62,7 +63,8 @@ abstract class $HomeStateCopyWith<$Res> {
       List<String> advertisementBanners,
       List<ShopData> availableShops,
       List<ShopData> filteredShops,
-      String selectedCategory});
+      String selectedCategory,
+      List<OfferDetail> shopOffer});
 }
 
 /// @nodoc
@@ -91,6 +93,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? availableShops = null,
     Object? filteredShops = null,
     Object? selectedCategory = null,
+    Object? shopOffer = null,
   }) {
     return _then(_value.copyWith(
       selectedDistrict: freezed == selectedDistrict
@@ -137,6 +140,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
               as String,
+      shopOffer: null == shopOffer
+          ? _value.shopOffer
+          : shopOffer // ignore: cast_nullable_to_non_nullable
+              as List<OfferDetail>,
     ) as $Val);
   }
 }
@@ -160,7 +167,8 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       List<String> advertisementBanners,
       List<ShopData> availableShops,
       List<ShopData> filteredShops,
-      String selectedCategory});
+      String selectedCategory,
+      List<OfferDetail> shopOffer});
 }
 
 /// @nodoc
@@ -187,6 +195,7 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? availableShops = null,
     Object? filteredShops = null,
     Object? selectedCategory = null,
+    Object? shopOffer = null,
   }) {
     return _then(_$HomeStateImpl(
       selectedDistrict: freezed == selectedDistrict
@@ -233,6 +242,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
               as String,
+      shopOffer: null == shopOffer
+          ? _value._shopOffer
+          : shopOffer // ignore: cast_nullable_to_non_nullable
+              as List<OfferDetail>,
     ));
   }
 }
@@ -251,7 +264,8 @@ class _$HomeStateImpl implements _HomeState {
       final List<String> advertisementBanners = const [],
       final List<ShopData> availableShops = const [],
       final List<ShopData> filteredShops = const [],
-      this.selectedCategory = "All offers"})
+      this.selectedCategory = "All offers",
+      final List<OfferDetail> shopOffer = const []})
       : _availableCountries = availableCountries,
         _availableStates = availableStates,
         _availableDistricts = availableDistricts,
@@ -259,7 +273,8 @@ class _$HomeStateImpl implements _HomeState {
         _availableCategories = availableCategories,
         _advertisementBanners = advertisementBanners,
         _availableShops = availableShops,
-        _filteredShops = filteredShops;
+        _filteredShops = filteredShops,
+        _shopOffer = shopOffer;
 
   factory _$HomeStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$HomeStateImplFromJson(json);
@@ -350,10 +365,20 @@ class _$HomeStateImpl implements _HomeState {
   @override
   @JsonKey()
   final String selectedCategory;
+//
+  final List<OfferDetail> _shopOffer;
+//
+  @override
+  @JsonKey()
+  List<OfferDetail> get shopOffer {
+    if (_shopOffer is EqualUnmodifiableListView) return _shopOffer;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_shopOffer);
+  }
 
   @override
   String toString() {
-    return 'HomeState(selectedDistrict: $selectedDistrict, selectedLocation: $selectedLocation, availableCountries: $availableCountries, availableStates: $availableStates, availableDistricts: $availableDistricts, availableLocations: $availableLocations, availableCategories: $availableCategories, advertisementBanners: $advertisementBanners, availableShops: $availableShops, filteredShops: $filteredShops, selectedCategory: $selectedCategory)';
+    return 'HomeState(selectedDistrict: $selectedDistrict, selectedLocation: $selectedLocation, availableCountries: $availableCountries, availableStates: $availableStates, availableDistricts: $availableDistricts, availableLocations: $availableLocations, availableCategories: $availableCategories, advertisementBanners: $advertisementBanners, availableShops: $availableShops, filteredShops: $filteredShops, selectedCategory: $selectedCategory, shopOffer: $shopOffer)';
   }
 
   @override
@@ -382,7 +407,9 @@ class _$HomeStateImpl implements _HomeState {
             const DeepCollectionEquality()
                 .equals(other._filteredShops, _filteredShops) &&
             (identical(other.selectedCategory, selectedCategory) ||
-                other.selectedCategory == selectedCategory));
+                other.selectedCategory == selectedCategory) &&
+            const DeepCollectionEquality()
+                .equals(other._shopOffer, _shopOffer));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -399,7 +426,8 @@ class _$HomeStateImpl implements _HomeState {
       const DeepCollectionEquality().hash(_advertisementBanners),
       const DeepCollectionEquality().hash(_availableShops),
       const DeepCollectionEquality().hash(_filteredShops),
-      selectedCategory);
+      selectedCategory,
+      const DeepCollectionEquality().hash(_shopOffer));
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -429,7 +457,8 @@ abstract class _HomeState implements HomeState {
       final List<String> advertisementBanners,
       final List<ShopData> availableShops,
       final List<ShopData> filteredShops,
-      final String selectedCategory}) = _$HomeStateImpl;
+      final String selectedCategory,
+      final List<OfferDetail> shopOffer}) = _$HomeStateImpl;
 
   factory _HomeState.fromJson(Map<String, dynamic> json) =
       _$HomeStateImpl.fromJson;
@@ -455,7 +484,9 @@ abstract class _HomeState implements HomeState {
   @override
   List<ShopData> get filteredShops;
   @override
-  String get selectedCategory;
+  String get selectedCategory; //
+  @override
+  List<OfferDetail> get shopOffer;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.

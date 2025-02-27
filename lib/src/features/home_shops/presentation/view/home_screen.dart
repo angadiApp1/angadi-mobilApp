@@ -60,6 +60,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         notifier.setAvailableShops(response.shops);
         _fetchBanners(homeState);
       },
+      loadedShopOffers: (response) {
+        notifier.setShopOffer(response.offers[0].offers);
+      },
       orElse: () {},
     );
   }

@@ -46,6 +46,10 @@ _$HomeStateImpl _$$HomeStateImplFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const [],
       selectedCategory: json['selectedCategory'] as String? ?? "All offers",
+      shopOffer: (json['shopOffer'] as List<dynamic>?)
+              ?.map((e) => OfferDetail.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$HomeStateImplToJson(_$HomeStateImpl instance) =>
@@ -61,13 +65,14 @@ Map<String, dynamic> _$$HomeStateImplToJson(_$HomeStateImpl instance) =>
       'availableShops': instance.availableShops,
       'filteredShops': instance.filteredShops,
       'selectedCategory': instance.selectedCategory,
+      'shopOffer': instance.shopOffer,
     };
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$homeStateProviderHash() => r'0f09de9c4ed1235f65a494b690bb446c917ed018';
+String _$homeStateProviderHash() => r'04a6b21def6651cc72542b93d1fda87568c230e4';
 
 /// See also [HomeStateProvider].
 @ProviderFor(HomeStateProvider)

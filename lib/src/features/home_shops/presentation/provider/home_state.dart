@@ -1,6 +1,7 @@
 import 'package:angadiapp/src/features/home_shops/data/response/fetch_shops_model.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_categories_model.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_location_response_model.dart';
+import 'package:angadiapp/src/features/home_shops/data/response/shop_offers_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -21,6 +22,9 @@ class HomeState with _$HomeState {
     @Default([]) List<ShopData> availableShops,
     @Default([]) List<ShopData> filteredShops,
     @Default("All offers") String selectedCategory,
+
+    //
+    @Default([]) List<OfferDetail> shopOffer,
   }) = _HomeState;
 
   factory HomeState.fromJson(Map<String, dynamic> json) =>
@@ -32,6 +36,10 @@ class HomeStateProvider extends _$HomeStateProvider {
   @override
   HomeState build() {
     return const HomeState();
+  }
+
+  void setShopOffer(List<OfferDetail> shopOffer) {
+    state = state.copyWith(shopOffer: shopOffer);
   }
 
   void setAvailableShops(List<ShopData> shops) {

@@ -6,6 +6,7 @@ import 'package:angadiapp/src/features/home_shops/domain/repository/home_reposit
 import 'package:angadiapp/src/features/home_shops/domain/usecase/get_adBanners_usecase.dart';
 import 'package:angadiapp/src/features/home_shops/domain/usecase/get_categories_usecase.dart';
 import 'package:angadiapp/src/features/home_shops/domain/usecase/get_location_usecase.dart';
+import 'package:angadiapp/src/features/home_shops/domain/usecase/get_shop_offers_usecase.dart';
 import 'package:angadiapp/src/features/home_shops/domain/usecase/get_shops_usecase.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/bloc/bloc/home_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -31,11 +32,17 @@ Future<void> init() async {
   );
 
   // Use Cases
-  serviceLocator.registerLazySingleton(() => GetLocationUsecase(serviceLocator()));
-  serviceLocator.registerLazySingleton(() => GetCategoriesUsecase(serviceLocator()));
-  serviceLocator.registerLazySingleton(() => GetAdBannersUsecase(serviceLocator()));
+  serviceLocator
+      .registerLazySingleton(() => GetLocationUsecase(serviceLocator()));
+  serviceLocator
+      .registerLazySingleton(() => GetCategoriesUsecase(serviceLocator()));
+  serviceLocator
+      .registerLazySingleton(() => GetAdBannersUsecase(serviceLocator()));
   serviceLocator.registerLazySingleton(() => GetShopsUsecase(serviceLocator()));
+  serviceLocator
+      .registerLazySingleton(() => GetShopOffersUsecase(serviceLocator()));
 
   // BLoCs
-  serviceLocator.registerFactory(() => HomeBloc(serviceLocator(), serviceLocator(), serviceLocator(), serviceLocator()));
+  serviceLocator.registerFactory(() => HomeBloc(serviceLocator(),
+      serviceLocator(), serviceLocator(), serviceLocator(), serviceLocator()));
 }

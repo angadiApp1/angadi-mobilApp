@@ -6,8 +6,7 @@ class HomeEvent with _$HomeEvent {
 
   const factory HomeEvent.getLocationData() = _GetLocationData;
 
-  const factory HomeEvent.getCategories(
-  ) = _GetCategories;
+  const factory HomeEvent.getCategories() = _GetCategories;
 
   const factory HomeEvent.getBanners(
     String locationId,
@@ -16,4 +15,8 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.getShops(
     String locationId,
   ) = _GetShops;
+
+  const factory HomeEvent.getShopOffers(
+    String shopId,
+  ) = _GetShopOffers;
 }

@@ -3,10 +3,13 @@ import 'package:angadiapp/core/constants/style.dart';
 import 'package:angadiapp/src/common_widgets/carousel_slider.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/fetch_shops_model.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_categories_model.dart';
+import 'package:angadiapp/src/features/home_shops/presentation/bloc/bloc/home_bloc.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/provider/home_state.dart';
+import 'package:angadiapp/src/features/home_shops/presentation/view/shop_detail_screen.dart';
 import 'package:angadiapp/src/features/home_shops/widget/category_widget.dart';
 import 'package:angadiapp/src/features/home_shops/widget/location_dialogue.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -215,7 +218,13 @@ class ShopCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => showShopDialogue(context),
+      onTap: () {
+        context.read<HomeBloc>().add(HomeEvent.getShopOffers(shop.id));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ShopDetailScreen(
+                  shop: shop,
+                )));
+      },
       borderRadius: BorderRadius.circular(12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -325,22 +334,4 @@ class ImageErrorPlaceholder extends StatelessWidget {
       ),
     );
   }
-}
-
-// Define showShopDialogue function if not already defined elsewhere
-void showShopDialogue(BuildContext context) {
-  // Implementation would go here - this is a placeholder
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: Text('Shop Details'),
-      content: Text('Shop details would appear here'),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: Text('Close'),
-        ),
-      ],
-    ),
-  );
 }

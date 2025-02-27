@@ -1,16 +1,14 @@
-
 import 'package:angadiapp/src/features/home_shops/data/network/home_api_clients.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/fetch_shops_model.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_banners_model.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_categories_model.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_location_response_model.dart';
+import 'package:angadiapp/src/features/home_shops/data/response/shop_offers_model.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<GetLocationResponseModel?> getLocationData(
-  );
+  Future<GetLocationResponseModel?> getLocationData();
 
-  Future<dynamic> getCategories(
-  );
+  Future<dynamic> getCategories();
 
   Future<List<GetBannersResponseModel>?> getBanners(
     String locationId,
@@ -19,25 +17,24 @@ abstract class HomeRemoteDataSource {
   Future<GetShopsResponseModel?> getShops(
     String locationId,
   );
+
+  Future<ShopOffersResponseModel?> getShopOffers(
+    String locationId,
+  );
 }
 
-
-
-class HomeRemoteDataSourceImpl
-    implements HomeRemoteDataSource {
+class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final HomeServiceClient _homeServiceClient;
 
   HomeRemoteDataSourceImpl(this._homeServiceClient);
 
   @override
-    Future<GetLocationResponseModel?> getLocationData(
-  ) async {
+  Future<GetLocationResponseModel?> getLocationData() async {
     return await _homeServiceClient.getLocationData();
   }
 
   @override
-  Future<GetCategoriesResponseModel?> getCategories(
-  ) async {
+  Future<GetCategoriesResponseModel?> getCategories() async {
     return await _homeServiceClient.getCategories();
   }
 
@@ -53,5 +50,12 @@ class HomeRemoteDataSourceImpl
     String locationId,
   ) async {
     return await _homeServiceClient.getShops(locationId);
+  }
+
+  @override
+  Future<ShopOffersResponseModel?> getShopOffers(
+    String shopId,
+  ) async {
+    return await _homeServiceClient.getShopOffers(shopId);
   }
 }

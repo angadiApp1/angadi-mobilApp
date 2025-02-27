@@ -12,7 +12,7 @@ import 'package:gap/gap.dart';
 
 class LocationSelectorDialog extends StatefulWidget {
   final WidgetRef ref;
-  
+
   const LocationSelectorDialog({
     Key? key,
     required this.ref,
@@ -30,13 +30,13 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
         final homeState = ref.watch(homeStateProviderProvider);
         final districts = homeState.availableDistricts;
         final selectedDistrict = homeState.selectedDistrict;
-        
-        final List<LocationData> locations = selectedDistrict != null 
-              ? homeState.availableDistricts
-                  .where((district) => district.name == selectedDistrict)
-                  .first
-                  .locations
-              : [];
+
+        final List<LocationData> locations = selectedDistrict != null
+            ? homeState.availableDistricts
+                .where((district) => district.name == selectedDistrict)
+                .first
+                .locations
+            : [];
 
         return Align(
           alignment: Alignment.center,
@@ -61,8 +61,9 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
                       if (selectedDistrict != null)
                         InkWell(
                           onTap: () {
-                            ref.read(homeStateProviderProvider.notifier)
-                              .setSelectedDistrict(null);
+                            ref
+                                .read(homeStateProviderProvider.notifier)
+                                .setSelectedDistrict(null);
                           },
                           child: Icon(
                             Icons.arrow_back,
@@ -74,10 +75,9 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
                           child: Text(
                             'Change location',
                             style: getTextStyle(
-                              fp: 24,
-                              fontWeight: FontWeight.w500,
-                              color: CustomColors.white
-                            ),
+                                fp: 24,
+                                fontWeight: FontWeight.w500,
+                                color: CustomColors.white),
                           ),
                         ),
                       ),
@@ -89,67 +89,69 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
                         ? 'Select District'
                         : 'Select Location',
                     style: getTextStyle(
-                      fp: 16,
-                      fontWeight: FontWeight.w500,
-                      color: CustomColors.white,
-                      overflow: TextOverflow.visible
-                    ),
+                        fp: 16,
+                        fontWeight: FontWeight.w500,
+                        color: CustomColors.white,
+                        overflow: TextOverflow.visible),
                   ),
                   Gap(12.h),
                   if (selectedDistrict == null)
                     // Show Districts List
                     ...List.generate(
-                      districts.length,
-                      (index) => Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              ref.read(homeStateProviderProvider.notifier)
-                                .setSelectedDistrict(districts[index].name);
-                            },
-                            child: Container(
-                              height: 45,
-                              decoration: BoxDecoration(
-                                color: CustomColors.white,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Center(
-                                child: Text(districts[index].name)
-                              ),
-                            ),
-                          ),
-                          Gap(8.h)
-                        ],
-                      )
-                    )
+                        districts.length,
+                        (index) => Column(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    ref
+                                        .read(
+                                            homeStateProviderProvider.notifier)
+                                        .setSelectedDistrict(
+                                            districts[index].name);
+                                  },
+                                  child: Container(
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                      color: CustomColors.white,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Center(
+                                        child: Text(districts[index].name)),
+                                  ),
+                                ),
+                                Gap(8.h)
+                              ],
+                            ))
                   else
                     // Show Locations List
                     ...List.generate(
-                      locations.length,
-                      (index) => Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              ref.read(homeStateProviderProvider.notifier)
-                                .setSelectedLocation(locations[index]);
-                              context.read<HomeBloc>().add(const HomeEvent.getCategories());
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              height: 45,
-                              decoration: BoxDecoration(
-                                color: CustomColors.white,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Center(
-                                child: Text(locations[index].name)
-                              ),
-                            ),
-                          ),
-                          Gap(8.h)
-                        ],
-                      )
-                    ),
+                        locations.length,
+                        (index) => Column(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    ref
+                                        .read(
+                                            homeStateProviderProvider.notifier)
+                                        .setSelectedLocation(locations[index]);
+                                    context
+                                        .read<HomeBloc>()
+                                        .add(const HomeEvent.getCategories());
+                                    Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                      color: CustomColors.white,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Center(
+                                        child: Text(locations[index].name)),
+                                  ),
+                                ),
+                                Gap(8.h)
+                              ],
+                            )),
                 ],
               ),
             ),
@@ -160,33 +162,12 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
   }
 }
 
-class HomeBlocEvent {
-}
+class HomeBlocEvent {}
 
 // Update your showLocationDialogue function
 void showLocationDialogue(BuildContext context, WidgetRef ref) {
   showDialog(
     context: context,
     builder: (context) => LocationSelectorDialog(ref: ref),
-  );
-}
-
-showShopDialogue(BuildContext context,) {
-  showDialog(
-    context: context,
-    builder: (context) {
-      return Align(
-        alignment: Alignment.center,
-        child: Material(
-          child: Stack(
-            children: [
-              Image.asset(
-                width: 350,
-                ImageAssets.dummy,fit: BoxFit.cover,),
-            ],
-          ),
-        ),
-      );
-    },
   );
 }
