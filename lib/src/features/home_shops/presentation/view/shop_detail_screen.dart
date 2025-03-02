@@ -3,11 +3,16 @@ import 'package:angadiapp/core/constants/style.dart';
 import 'package:angadiapp/core/utils/extract_date.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/fetch_shops_model.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/shop_offers_model.dart';
+import 'package:angadiapp/src/features/home_shops/presentation/bloc/bloc/home_bloc.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/provider/home_state.dart';
 import 'package:angadiapp/src/features/home_shops/widget/home_widgets.dart';
+import 'package:angadiapp/src/features/home_shops/widget/shop_detail_screen_skelton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class ShopDetailScreen extends ConsumerWidget {
   final ShopData shop;
@@ -28,77 +33,91 @@ class ShopDetailScreen extends ConsumerWidget {
               icon: const Icon(
                 CupertinoIcons.back,
                 color: Colors.black,
+                size: 30,
               ),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-            // Image.network(
-            //   shop.logo, // Replace with your logo URL
-            //   width: 40,
-            //   height: 40,
-            // ),
           ],
         ),
         title: Text(
           shop.name,
-          style: TextStyle(fontSize: 16, color: Colors.black87),
+          style: getTextStyle(fp: 16, fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
       ),
-      body: Stack(
-        children: [
-          const HomeBackgroundCircle(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: double.infinity,
-                margin: const EdgeInsets.all(16),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF187B5A),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      shop.landmark,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+      body: BlocBuilder<HomeBloc, HomeBlocState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            loadingShopOffers: () {
+              return ShopDetailBodySkeleton();
+            },
+            orElse: () {
+              return Stack(
+                children: [
+                  const HomeBackgroundCircle(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 12),
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 93, 161, 139),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          children: [
+                            ShopLogo(logo: shop.logo),
+                            Gap(10.w),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  shop.landmark,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  shop.mobile,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      shop.mobile,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
+                      Expanded(
+                        child: PromotionGrid(
+                          promotions: [
+                            ...List.generate(
+                              offers.length,
+                              (index) => Promotion(
+                                imageUrl: offers[index].poster,
+                                expiryDate:
+                                    extractDate(offers[index].offerEndsIn),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: PromotionGrid(
-                  promotions: [
-                    ...List.generate(
-                      offers.length,
-                      (index) => Promotion(
-                        imageUrl: offers[index].poster,
-                        expiryDate: extractDate(offers[index].offerEndsIn),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
+                    ],
+                  ),
+                ],
+              );
+            },
+          );
+        },
       ),
     );
   }
@@ -174,22 +193,23 @@ class PromotionCard extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 4),
-            decoration: BoxDecoration(
-                color: CustomColors.pattensBlue,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10))),
-            child: Text(
-              'Expires on ${promotion.expiryDate}',
-              style: getTextStyle(
-                fp: 12,
-                fontWeight: FontWeight.w500,
+          if (promotion.expiryDate != '')
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              decoration: BoxDecoration(
+                  color: CustomColors.pattensBlue,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10))),
+              child: Text(
+                'Expires on ${promotion.expiryDate}',
+                style: getTextStyle(
+                  fp: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
-          ),
         ],
       ),
     );

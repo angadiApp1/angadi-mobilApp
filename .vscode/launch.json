@@ -2,20 +2,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "angadiapp",
+            "name": "Angadi",
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart"
         },
         {
-            "name": "angadiapp (profile mode)",
+            "name": "Angadi (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
             "program": "lib/main.dart"
         },
         {
-            "name": "angadiapp (release mode)",
+            "name": "Angadi (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",

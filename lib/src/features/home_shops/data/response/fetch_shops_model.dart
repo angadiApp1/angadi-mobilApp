@@ -4,7 +4,6 @@ part 'fetch_shops_model.g.dart';
 
 @JsonSerializable()
 class GetShopsResponseModel {
-
   @JsonKey(name: "shops")
   final List<ShopData> shops;
 
@@ -25,7 +24,7 @@ class ShopData {
   @JsonKey(name: "Name")
   final String name;
 
-  @JsonKey(name: "_id") 
+  @JsonKey(name: "_id")
   final String id;
 
   @JsonKey(name: "categoryId")
@@ -37,7 +36,7 @@ class ShopData {
   @JsonKey(name: "countryId")
   final String countryId;
 
-  @JsonKey(name: "countryName") 
+  @JsonKey(name: "countryName")
   final String countryName;
 
   @JsonKey(name: "cratedDate")

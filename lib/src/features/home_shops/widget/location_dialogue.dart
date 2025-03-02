@@ -1,5 +1,6 @@
 import 'package:angadiapp/core/constants/colors.dart';
 import 'package:angadiapp/core/constants/style.dart';
+import 'package:angadiapp/core/utils/shared_pref.dart';
 import 'package:angadiapp/src/features/home_shops/data/response/get_location_response_model.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/bloc/bloc/home_bloc.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/provider/home_state.dart';
@@ -48,7 +49,7 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
               width: 350,
               padding: EdgeInsets.symmetric(horizontal: 15.h, vertical: 10.h),
               decoration: BoxDecoration(
-                color: CustomColors.themeGreen,
+                color: CustomColors.themeMagenta,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -128,7 +129,7 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
                         (index) => Column(
                               children: [
                                 InkWell(
-                                  onTap: () {
+                                  onTap: () async {
                                     ref
                                         .read(
                                             homeStateProviderProvider.notifier)
@@ -136,6 +137,8 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
                                     context
                                         .read<HomeBloc>()
                                         .add(const HomeEvent.getCategories());
+                                    await SharedPrefUtils.saveLocationId(
+                                        locations[index].id);
                                     Navigator.pop(context);
                                   },
                                   child: Container(
@@ -160,8 +163,6 @@ class _LocationSelectorDialogState extends State<LocationSelectorDialog> {
     );
   }
 }
-
-class HomeBlocEvent {}
 
 // Update your showLocationDialogue function
 void showLocationDialogue(BuildContext context, WidgetRef ref) {

@@ -26,8 +26,8 @@ class HomeBackgroundCircle extends StatelessWidget {
       child: Container(
         height: 356,
         width: 362,
-        decoration: const BoxDecoration(
-          color: Color(0xFFCFE4D6),
+        decoration: BoxDecoration(
+          color: CustomColors.themeMagenta,
           shape: BoxShape.circle,
         ),
       ),
@@ -54,8 +54,8 @@ class HomeHeader extends StatelessWidget {
       children: [
         Image.asset(
           logo,
-          width: 150,
-          height: 100,
+          width: 60,
+          height: 60,
         ),
         LocationSelector(selectedLocation: selectedLocation),
       ],
@@ -101,7 +101,7 @@ class HomeCarouselSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return courouselSlider(homeState);
+    return carouselSlider(homeState);
   }
 }
 

@@ -9,11 +9,10 @@ class CustomColors {
   static final Color black60 = black.withAlpha(153);
   static final Color black50 = black.withAlpha(128);
 
-  static const Color themeGreen = Color(0xff31533C);
+  static const Color themeMagenta = Color(0xff5F0F40);
   static const Color grey = Colors.grey;
 
   static const Color transparent = Colors.transparent;
-
 
   // Font
   static const Color neroBlack = Color(0xFF191919);
@@ -21,11 +20,8 @@ class CustomColors {
   static const Color neroBlack3 = Color(0xFF4B4F52);
   static const Color black4 = Color(0xFF1E1E1E);
 
-
   // Background
   static const Color pattensBlue = Color(0xFFDBE4F3);
-
-
 
   static const Color warningRed = Color(0xffE8505B);
 

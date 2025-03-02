@@ -1,4 +1,4 @@
-package com.example.angadiapp
+package com.angadiapp.offers
 
 import io.flutter.embedding.android.FlutterActivity
 

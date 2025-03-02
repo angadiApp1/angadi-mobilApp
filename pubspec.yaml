@@ -39,6 +39,7 @@ dependencies:
   carousel_slider: ^5.0.0
   dots_indicator: ^3.0.0
   intl: ^0.20.2
+  flutter_svg: ^2.0.10+1
 
   # utils
   dartz: ^0.10.1
@@ -46,6 +47,8 @@ dependencies:
   shimmer: ^3.0.0
   gap: ^3.0.1
   flutter_screenutil: ^5.9.3
+  collection: ^1.18.0
+  flutter_launcher_icons: ^0.14.3 
 
   # State Management
   flutter_riverpod: ^2.5.1
@@ -54,6 +57,9 @@ dependencies:
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
   riverpod_annotation: ^2.3.5
+
+  # Local Storage
+  shared_preferences: ^2.3.3
 
 
   # The following adds the Cupertino Icons font to your application.

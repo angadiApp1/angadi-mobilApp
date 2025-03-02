@@ -18,12 +18,13 @@ Widget buildCategoryWidget(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           border: Border.all(
-            color:
-                isSelected ? CustomColors.themeGreen : CustomColors.pattensBlue,
+            color: isSelected
+                ? CustomColors.themeMagenta
+                : CustomColors.pattensBlue,
             width: 2,
           ),
           color: isSelected
-              ? CustomColors.themeGreen.withOpacity(0.1)
+              ? CustomColors.themeMagenta.withOpacity(0.1)
               : Colors.transparent,
         ),
         padding: EdgeInsets.symmetric(

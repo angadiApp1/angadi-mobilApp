@@ -18,16 +18,47 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
+  static const String _defaultCategory = "All offers";
+
   @override
   void initState() {
     super.initState();
-    // Set default category during initialization
+    _initializeHomeScreen();
+  }
+
+  void _initializeHomeScreen() {
+    // Use post-frame callback to ensure context is available
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Set default category during initialization
       ref
           .read(homeStateProviderProvider.notifier)
-          .setSelectedCategory("All offers");
-      context.read<HomeBloc>().add(HomeEvent.getLocationData());
+          .setSelectedCategory(_defaultCategory);
+
+      // Start data loading sequence
+      _fetchCategories();
     });
+  }
+
+  void _fetchCategories() {
+    context.read<HomeBloc>().add(HomeEvent.getCategories());
+  }
+
+  void _fetchShops() {
+    final homeState = ref.read(homeStateProviderProvider);
+    final locationId = homeState.selectedLocation?.id ?? '';
+    context.read<HomeBloc>().add(HomeEvent.getShops(locationId));
+  }
+
+  void _fetchBanners() {
+    final homeState = ref.read(homeStateProviderProvider);
+    final locationId = homeState.selectedLocation?.id ?? '';
+    context.read<HomeBloc>().add(HomeEvent.getBanners(locationId));
+  }
+
+  void _fetchShopOffers() {
+    final homeState = ref.read(homeStateProviderProvider);
+    final locationId = homeState.selectedLocation?.id ?? '';
+    context.read<HomeBloc>().add(HomeEvent.getShopOffers(locationId));
   }
 
   @override
@@ -35,112 +66,139 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final homeState = ref.watch(homeStateProviderProvider);
 
     return Scaffold(
-        body: BlocConsumer<HomeBloc, HomeBlocState>(
-      listener: _blocListener,
-      builder: (context, state) => _buildBody(context, state, homeState),
-    ));
+      body: BlocConsumer<HomeBloc, HomeBlocState>(
+        listener: _blocListener,
+        builder: (context, state) => _buildBody(context, state, homeState),
+      ),
+    );
   }
 
-  // Extracted bloc listener logic for better readability
+  // Extracted bloc listener logic with improved error handling
   void _blocListener(BuildContext context, HomeBlocState state) {
-    final homeState = ref.read(homeStateProviderProvider);
     final notifier = ref.read(homeStateProviderProvider.notifier);
 
     state.maybeWhen(
       loadedBanners: (response) {
-        notifier.setAdvertisementBanners(
-            response.map((e) => e.images.first ?? "").toList());
+        if (response.isNotEmpty) {
+          final bannerImages = response
+              .map((banner) =>
+                  banner.images.isNotEmpty ? banner.images.first ?? "" : "")
+              .where((image) => image.isNotEmpty)
+              .toList();
+          notifier.setAdvertisementBanners(bannerImages);
+        }
       },
       loadedCategories: (response) {
         notifier.setAvailableCategories(response);
-        _fetchShops(homeState);
+        _fetchShops();
       },
       loadedShops: (response) {
         notifier.setAvailableShops(response.shops);
-        _fetchBanners(homeState);
+        _fetchBanners();
+        _fetchShopOffers();
       },
       loadedShopOffers: (response) {
-        notifier.setShopOffer(response.offers[0].offers);
+        if (response.offers.isNotEmpty) {
+          notifier.setShopOffer(response.offers[0].offers);
+        }
       },
       orElse: () {},
     );
   }
 
-  // Helper methods for cleaner code
-  void _fetchShops(HomeState homeState) {
-    context
-        .read<HomeBloc>()
-        .add(HomeEvent.getShops(homeState.selectedLocation?.id ?? ''));
-  }
-
-  void _fetchBanners(HomeState homeState) {
-    context
-        .read<HomeBloc>()
-        .add(HomeEvent.getBanners(homeState.selectedLocation?.id ?? ''));
-  }
-
-  // Main body builder
   Widget _buildBody(
       BuildContext context, HomeBlocState state, HomeState homeState) {
     return Container(
       width: double.infinity,
       child: Stack(
         children: [
-          HomeBackgroundCircle(),
+          const HomeBackgroundCircle(),
           _buildMainContent(context, state, homeState),
         ],
       ),
     );
   }
 
-  // Main content column
   Widget _buildMainContent(
       BuildContext context, HomeBlocState state, HomeState homeState) {
+    final hasSelectedLocation = homeState.selectedLocation != null;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Gap(40.h),
+        _buildHeader(homeState),
         Gap(20.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w),
-          child: HomeHeader(homeState: homeState, logo: ImageAssets.logo),
-        ),
-        Gap(20.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: HomeCarouselSlider(homeState: homeState),
-        ),
-        Gap(20.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w),
-          child: _buildCategoriesSection(state, homeState),
-        ),
-        Gap(20.h),
-        Expanded(
-          child: _buildShopsGrid(context, state, homeState),
-        ),
+        if (hasSelectedLocation) ...[
+          _buildCarousel(homeState),
+          Gap(20.h),
+          _buildCategoriesSection(state, homeState),
+          Gap(20.h),
+          Expanded(
+            child: _buildShopsGrid(context, state, homeState),
+          ),
+        ] else
+          _buildLocationSelectionPrompt(),
         Gap(20.h),
       ],
     );
   }
 
-  // Categories section with proper state handling
-  Widget _buildCategoriesSection(HomeBlocState state, HomeState homeState) {
-    return state.maybeWhen(
-      orElse: () => HomeCategoriesRow(
-        homeState: homeState,
-        ref: ref,
-      ),
-      loadingShops: () => buildCategoryShimmer(),
-      loadingCategories: () => buildCategoryShimmer(),
-      errorCategories: (error) => buildCategoryShimmer(),
-      loadedCategories: (response) => HomeCategoriesRow(
-        homeState: homeState,
-        ref: ref,
+  Widget _buildHeader(HomeState homeState) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      child: HomeHeader(homeState: homeState, logo: ImageAssets.logo),
+    );
+  }
+
+  Widget _buildCarousel(HomeState homeState) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      child: HomeCarouselSlider(homeState: homeState),
+    );
+  }
+
+  Widget _buildLocationSelectionPrompt() {
+    return Expanded(
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.location_on_outlined, size: 48.sp, color: Colors.grey),
+            Gap(12.h),
+            Text(
+              'Please select a location',
+              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+            ),
+            Gap(8.h),
+            Text(
+              'Select a location to browse shops and offers',
+              style: TextStyle(fontSize: 14.sp, color: Colors.grey),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  // Shop grid with optimized item building
+  Widget _buildCategoriesSection(HomeBlocState state, HomeState homeState) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      child: state.maybeWhen(
+        loadingCategories: () => buildCategoryShimmer(),
+        errorCategories: (error) =>
+            _buildErrorWidget("Failed to load categories"),
+        orElse: () => homeState.availableCategories.isEmpty
+            ? buildCategoryShimmer()
+            : HomeCategoriesRow(
+                homeState: homeState,
+                ref: ref,
+              ),
+      ),
+    );
+  }
+
   Widget _buildShopsGrid(
       BuildContext context, HomeBlocState state, HomeState homeState) {
     final shops = homeState.filteredShops;
@@ -149,8 +207,31 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: state.maybeWhen(
         loadingShops: () => buildShopShimmer(6),
+        errorShops: (error) => _buildErrorWidget("Failed to load shops"),
         orElse: () =>
-            shops.isEmpty ? HomeEmptyState() : ShopsGrid(shops: shops),
+            shops.isEmpty ? const HomeEmptyState() : ShopsGrid(shops: shops),
+      ),
+    );
+  }
+
+  Widget _buildErrorWidget(String message) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.error_outline, size: 40.sp, color: Colors.red[300]),
+          Gap(8.h),
+          Text(
+            message,
+            style: TextStyle(fontSize: 14.sp, color: Colors.grey[700]),
+            textAlign: TextAlign.center,
+          ),
+          Gap(12.h),
+          ElevatedButton(
+            onPressed: _fetchCategories,
+            child: const Text('Retry'),
+          ),
+        ],
       ),
     );
   }
