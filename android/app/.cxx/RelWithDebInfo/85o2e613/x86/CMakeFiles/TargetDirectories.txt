@@ -1,0 +1,2 @@
+D:/projects/my/angadiapp/android/app/.cxx/RelWithDebInfo/85o2e613/x86/CMakeFiles/edit_cache.dir
+D:/projects/my/angadiapp/android/app/.cxx/RelWithDebInfo/85o2e613/x86/CMakeFiles/rebuild_cache.dir
