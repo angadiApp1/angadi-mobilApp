@@ -59,6 +59,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
     final notifier = ref.read(homeStateProviderProvider.notifier);
     final homeState = ref.read(homeStateProviderProvider);
+    final selectedLocationId = homeState.selectedLocation?.id ?? '';
 
     state.maybeWhen(
       // Handle location data loading
@@ -87,6 +88,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       // Handle banners loading - final step before navigation
       loadedBanners: (response) {
         final bannerImages = response
+            .where((banner) => banner.locationId == selectedLocationId)
             .map((banner) =>
                 banner.images.isNotEmpty ? banner.images.first ?? "" : "")
             .where((image) => image.isNotEmpty)

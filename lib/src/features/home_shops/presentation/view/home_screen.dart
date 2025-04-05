@@ -76,11 +76,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   // Extracted bloc listener logic with improved error handling
   void _blocListener(BuildContext context, HomeBlocState state) {
     final notifier = ref.read(homeStateProviderProvider.notifier);
+    final homeProviderState = ref.watch(homeStateProviderProvider);
+    final selectedLocationId = homeProviderState.selectedLocation?.id ?? '';
 
     state.maybeWhen(
       loadedBanners: (response) {
         if (response.isNotEmpty) {
           final bannerImages = response
+              .where((banner) => banner.locationId == selectedLocationId)
               .map((banner) =>
                   banner.images.isNotEmpty ? banner.images.first ?? "" : "")
               .where((image) => image.isNotEmpty)
