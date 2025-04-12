@@ -1,6 +1,7 @@
 import 'package:angadiapp/core/constants/assets.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/bloc/bloc/home_bloc.dart';
 import 'package:angadiapp/src/features/home_shops/presentation/provider/home_state.dart';
+import 'package:angadiapp/src/features/home_shops/presentation/view/shop_detail_screen.dart';
 import 'package:angadiapp/src/features/home_shops/widget/category_skelton.dart';
 import 'package:angadiapp/src/features/home_shops/widget/home_widgets.dart';
 import 'package:angadiapp/src/features/home_shops/widget/shop_skelton_widget.dart';
@@ -134,9 +135,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         Gap(20.h),
         if (hasSelectedLocation) ...[
           _buildCarousel(homeState),
-          Gap(20.h),
+          Gap(15.h),
+          _buildShopLogosStories(state, homeState),
+          Gap(15.h),
           _buildCategoriesSection(state, homeState),
-          Gap(20.h),
+          Gap(10.h),
           Expanded(
             child: _buildShopsGrid(context, state, homeState),
           ),
@@ -158,6 +161,57 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: HomeCarouselSlider(homeState: homeState),
+    );
+  }
+
+  Widget _buildShopLogosStories(HomeBlocState state, HomeState homeState) {
+    return state.maybeWhen(
+      loadingShops: () => _buildShopLogosShimmer(),
+      errorShops: (error) => const SizedBox(), // Hide on error
+      orElse: () {
+        if (homeState.availableShops.isEmpty) {
+          return const SizedBox(); // Hide if no shops
+        } else {
+          return ShopLogosStories(shops: homeState.availableShops);
+        }
+      },
+    );
+  }
+
+  Widget _buildShopLogosShimmer() {
+    return SizedBox(
+      height: 90.h,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w),
+            child: Column(
+              children: [
+                Container(
+                  height: 60.h,
+                  width: 60.w,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.grey[300],
+                  ),
+                ),
+                Gap(8.h),
+                Container(
+                  height: 10.h,
+                  width: 50.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.r),
+                    color: Colors.grey[300],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -236,6 +290,92 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           ),
         ],
       ),
+    );
+  }
+}
+
+// New widget for shop logos in Instagram stories style
+class ShopLogosStories extends StatelessWidget {
+  final List<dynamic> shops;
+
+  const ShopLogosStories({Key? key, required this.shops}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 60.h,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: shops.length,
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            itemBuilder: (context, index) {
+              final shop = shops[index];
+              return GestureDetector(
+                onTap: () {
+                  context
+                      .read<HomeBloc>()
+                      .add(HomeEvent.getShopOffers(shop.id));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ShopDetailScreen(
+                            shop: shop,
+                          )));
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 60.w,
+                        height: 60.h,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Theme.of(context).primaryColor,
+                            width: 2,
+                          ),
+                        ),
+                        child: Center(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(28.r),
+                            child: shop.logo != null && shop.logo.isNotEmpty
+                                ? Image.network(
+                                    shop.logo,
+                                    width: 56.w,
+                                    height: 56.h,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return Container(
+                                        color: Colors.grey[200],
+                                        child: Icon(
+                                          Icons.store,
+                                          size: 30.sp,
+                                          color: Colors.grey,
+                                        ),
+                                      );
+                                    },
+                                  )
+                                : Container(
+                                    color: Colors.grey[200],
+                                    child: Icon(
+                                      Icons.store,
+                                      size: 30.sp,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

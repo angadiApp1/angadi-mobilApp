@@ -28,8 +28,8 @@ Widget buildCategoryWidget(
               : Colors.transparent,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: 10.w,
-          vertical: 10.h,
+          horizontal: 10,
+          vertical: 8,
         ),
         child: Text(
           title,

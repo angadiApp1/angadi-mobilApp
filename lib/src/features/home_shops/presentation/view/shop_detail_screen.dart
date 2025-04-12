@@ -13,6 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ShopDetailScreen extends ConsumerWidget {
   final ShopData shop;
@@ -22,6 +23,13 @@ class ShopDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final homeState = ref.watch(homeStateProviderProvider);
     final List<OfferDetail> offers = homeState.shopOffer;
+    // final List<OfferDetail> offers = homeState.shopOffer.where((offer) {
+    //   final extracted = extractDate(offer.offerEndsIn);
+    //   final expiryDate = DateTime.tryParse(extracted);
+    //   if (expiryDate == null) return false;
+    //   return expiryDate.isAfter(DateTime.now()) ||
+    //       expiryDate.isAtSameMomentAs(DateTime.now());
+    // }).toList();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -66,7 +74,7 @@ class ShopDetailScreen extends ConsumerWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 12),
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 93, 161, 139),
+                          color: const Color(0xff9D3375),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Row(
@@ -85,11 +93,15 @@ class ShopDetailScreen extends ConsumerWidget {
                                   ),
                                 ),
                                 SizedBox(height: 4),
-                                Text(
-                                  shop.mobile,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
+                                InkWell(
+                                  onTap: () =>
+                                      _handleMobileNumberTap(shop.mobile),
+                                  child: Text(
+                                    shop.mobile,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -357,5 +369,25 @@ class _PromotionViewerState extends State<PromotionViewer> {
         ),
       ),
     );
+  }
+}
+
+void _handleMobileNumberTap(String phoneNumber) async {
+  final message =
+      Uri.encodeComponent("Hi, I'm contacting you from Angadi app!");
+  final whatsappUrl = "whatsapp://send?phone=$phoneNumber&text=$message";
+  final telUrl = "tel:$phoneNumber";
+
+  try {
+    final canOpenWhatsapp = await canLaunchUrl(Uri.parse(whatsappUrl));
+    if (canOpenWhatsapp) {
+      await launchUrl(Uri.parse(whatsappUrl));
+    } else {
+      // Fallback to dialer
+      await launchUrl(Uri.parse(telUrl));
+    }
+  } catch (e) {
+    // In case of any error, fallback to dialer
+    await launchUrl(Uri.parse(telUrl));
   }
 }
