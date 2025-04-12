@@ -1,59 +1,49 @@
-# Flutter/Dart/Pub related
+# Flutter-specific
 .dart_tool/
-.packages
-.pub-cache/
 build/
-.flutter-plugins
-.flutter-plugins-dependencies
-.melos_tool/
+.fvm/ # If you are using FVM (Flutter Version Management)
 
-# Visual Studio Code
+# Android-specific
+android/app/build/
+android/.gradle/
+android/build/
+android/local.properties # Contains sensitive information, keep it local
+
+# iOS-specific
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework/
+ios/Flutter/Flutter.framework/
+ios/build/
+
+# macOS-specific
+macos/Flutter/ephemeral/
+macos/build/
+
+# Web-specific
+web/build/
+
+# Linux-specific
+linux/build/
+
+# Windows-specific
+windows/build/
+
+# Generated files and caches (as seen in your screenshot)
+**/CMakeCache.txt
+**/cmakeFiles-v1-*
+**/cache-v2-*.json
+**/index-*.json
+**/build.ninja
+
+# IntelliJ/Android Studio specific (optional)
+.idea/
+.iml
+*.iws
+
+# VS Code specific (optional)
 .vscode/
 
-# IntelliJ related
-.idea/
-*.iml
-
-# Android related
-android/.gradle/
-android/captures/
-android/.idea/
-android/local.properties
-
-# iOS related
-ios/Flutter/Flutter.framework
-ios/Flutter/Flutter.podspec
-ios/.symlinks/
-ios/Pods/
-ios/.dart_tool/
-ios/Flutter/App.framework
-ios/Flutter/Generated.xcconfig
-ios/Runner.xcworkspace/
-ios/Runner.xcodeproj/project.xcworkspace/
-
-# macOS
-macos/Flutter/GeneratedPluginRegistrant.swift
-macos/Flutter/ephemeral/
-
-# Web
-web/.dart_tool/
-
-# Linux
-linux/flutter/ephemeral/
-
-# Windows
-windows/flutter/ephemeral/
-
-# Build output
-build/
-.flutter-plugins
-.flutter-plugins-dependencies
-.flutter-versions
-pubspec.lock
-
-# Misc
+# General temporary files
 *.log
-*.lock
 *.tmp
-*.swp
-*.DS_Store
