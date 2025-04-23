@@ -79,13 +79,13 @@ class ShopDetailScreen extends ConsumerWidget {
                         ),
                         child: Row(
                           children: [
-                            ShopLogo(logo: shop.logo),
+                            ShopLogo(logo: shop.logo ?? ''),
                             Gap(10.w),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  shop.landmark,
+                                  shop.landmark ?? '',
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
@@ -93,17 +93,18 @@ class ShopDetailScreen extends ConsumerWidget {
                                   ),
                                 ),
                                 SizedBox(height: 4),
-                                InkWell(
-                                  onTap: () =>
-                                      _handleMobileNumberTap(shop.mobile),
-                                  child: Text(
-                                    shop.mobile,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.white,
+                                if (shop.mobile != null)
+                                  InkWell(
+                                    onTap: () =>
+                                        _handleMobileNumberTap(shop.mobile!),
+                                    child: Text(
+                                      shop.mobile!,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
-                                ),
                               ],
                             ),
                           ],

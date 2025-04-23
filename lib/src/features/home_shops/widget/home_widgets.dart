@@ -268,7 +268,7 @@ class ShopImageSection extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
-              shop.thumbnail,
+              shop.thumbnail ?? "",
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) =>
                   ImageErrorPlaceholder(),
@@ -278,7 +278,7 @@ class ShopImageSection extends StatelessWidget {
         Positioned(
           bottom: 10,
           left: 10,
-          child: ShopLogo(logo: shop.logo),
+          child: ShopLogo(logo: shop.logo ?? ''),
         ),
       ],
     );

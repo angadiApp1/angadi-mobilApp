@@ -34,20 +34,20 @@ ShopOffer _$ShopOfferFromJson(Map<String, dynamic> json) => ShopOffer(
       cratedDate: json['cratedDate'] as String,
       districtId: json['districtId'] as String,
       districtName: json['districtName'] as String,
-      landmark: json['landmark'] as String,
+      landmark: json['landmark'] as String?,
       locationId: json['locationId'] as String,
       locationName: json['locationName'] as String,
-      logo: json['logo'] as String,
-      mobile: json['mobile'] as String,
+      logo: json['logo'] as String?,
+      mobile: json['mobile'] as String?,
       offers: (json['offers'] as List<dynamic>)
           .map((e) => OfferDetail.fromJson(e as Map<String, dynamic>))
           .toList(),
-      password: json['password'] as String,
-      paymentCompleted: json['paymentCompleted'] as bool,
+      password: json['password'] as String?,
+      paymentCompleted: json['paymentCompleted'] as bool?,
       stateId: json['stateId'] as String,
       stateName: json['stateName'] as String,
-      thumbnail: json['thumbnail'] as String,
-      userName: json['userName'] as String,
+      thumbnail: json['thumbnail'] as String?,
+      userName: json['userName'] as String?,
     );
 
 Map<String, dynamic> _$ShopOfferToJson(ShopOffer instance) => <String, dynamic>{

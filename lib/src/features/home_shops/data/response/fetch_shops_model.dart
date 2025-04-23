@@ -49,7 +49,7 @@ class ShopData {
   final String districtName;
 
   @JsonKey(name: "landmark")
-  final String landmark;
+  final String? landmark;
 
   @JsonKey(name: "locationId")
   final String locationId;
@@ -58,16 +58,16 @@ class ShopData {
   final String locationName;
 
   @JsonKey(name: "logo")
-  final String logo;
+  final String? logo;
 
   @JsonKey(name: "mobile")
-  final String mobile;
+  final String? mobile;
 
   @JsonKey(name: "password")
-  final String password;
+  final String? password;
 
   @JsonKey(name: "paymentCompleted")
-  final bool paymentCompleted;
+  final bool? paymentCompleted;
 
   @JsonKey(name: "stateId")
   final String stateId;
@@ -76,10 +76,10 @@ class ShopData {
   final String stateName;
 
   @JsonKey(name: "thumbnail")
-  final String thumbnail;
+  final String? thumbnail;
 
   @JsonKey(name: "userName")
-  final String userName;
+  final String? userName;
 
   ShopData({
     required this.name,
@@ -91,17 +91,17 @@ class ShopData {
     required this.createdDate,
     required this.districtId,
     required this.districtName,
-    required this.landmark,
+    this.landmark,
     required this.locationId,
     required this.locationName,
-    required this.logo,
-    required this.mobile,
-    required this.password,
-    required this.paymentCompleted,
+    this.logo,
+    this.mobile,
+    this.password,
+    this.paymentCompleted,
     required this.stateId,
     required this.stateName,
-    required this.thumbnail,
-    required this.userName,
+    this.thumbnail,
+    this.userName,
   });
 
   factory ShopData.fromJson(Map<String, dynamic> json) =>

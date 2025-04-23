@@ -33,18 +33,18 @@ class ShopOffer {
   final String cratedDate;
   final String districtId;
   final String districtName;
-  final String landmark;
+  final String? landmark;
   final String locationId;
   final String locationName;
-  final String logo;
-  final String mobile;
+  final String? logo;
+  final String? mobile;
   final List<OfferDetail> offers;
-  final String password;
-  final bool paymentCompleted;
+  final String? password;
+  final bool? paymentCompleted;
   final String stateId;
   final String stateName;
-  final String thumbnail;
-  final String userName;
+  final String? thumbnail;
+  final String? userName;
 
   ShopOffer({
     required this.name,
@@ -56,18 +56,18 @@ class ShopOffer {
     required this.cratedDate,
     required this.districtId,
     required this.districtName,
-    required this.landmark,
+    this.landmark,
     required this.locationId,
     required this.locationName,
-    required this.logo,
-    required this.mobile,
+    this.logo,
+    this.mobile,
     required this.offers,
-    required this.password,
-    required this.paymentCompleted,
+    this.password,
+    this.paymentCompleted,
     required this.stateId,
     required this.stateName,
-    required this.thumbnail,
-    required this.userName,
+    this.thumbnail,
+    this.userName,
   });
 
   factory ShopOffer.fromJson(Map<String, dynamic> json) =>
